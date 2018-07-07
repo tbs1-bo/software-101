@@ -25,7 +25,7 @@ class GUI:
         btn.grid(row=1, column=0)
 
         # add label with counter value
-        self.lbl = tkinter.Label(root, text="Counter")
+        self.lbl = tkinter.Label(root, text="Label für Counter")
         self.lbl.grid(row=1, column=1)
 
         # add entry field
