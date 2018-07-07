@@ -1,6 +1,6 @@
 # Bottle
 
-Bottle (https://bottlepy.org) ist ein Webframework, das leicht mit pip
+[Bottle](https://bottlepy.org) ist ein Webframework, das leicht mit pip
 installiert werden kann.
 
     $ pip install bottle
