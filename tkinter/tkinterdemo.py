@@ -2,7 +2,7 @@ import tkinter
 
 class GUI:
     def __init__(self):
-        self.i = 0
+        self.counter = 0
 
         root = tkinter.Tk()
         root.title("TKinter Demo")
@@ -37,13 +37,13 @@ class GUI:
 
     def click(self):
         # update label
-        self.lbl.configure(text="Counter " + str(self.i))
+        self.lbl.configure(text="Counter " + str(self.counter))
 
         # clear the entry field
         self.ent.delete(0, tkinter.END)        
-        self.ent.insert(0, self.i)
+        self.ent.insert(0, self.counter)
 
-        self.i += 1
+        self.counter += 1
 
 if __name__ == "__main__":
     GUI()
