@@ -2,8 +2,9 @@
 
 Mit Python wird das Paket ``tkinter`` für die Gestaltung von GUIs 
 mitgeliefert. Es muss daher nicht installiert werden und ist bei 
-jede Python-Installation vorhanden. Eine ausführliche Dokumentation 
-ist unter http://effbot.org/tkinterbook/ zu finden.
+jeder Python-Installation vorhanden. Das 
+[tkinter-Book](http://effbot.org/tkinterbook/) beschreibt ausführlich
+das Modul.
 
 Die Beispielanwendung [tkinterdemo.py](tkinterdemo.py) enthält
 einen Button, ein Menü, ein Label, ein Bild und eine Statusbar. Beim Klick
