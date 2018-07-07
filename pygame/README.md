@@ -8,4 +8,5 @@ Bei dem Beispiel in [pygamedemo.py](pygamedemo.py) hüpft ein Ball über den Bil
 Bei jedem Mausklick auf den Ball ändert der Ball seine Richtung.
 
 Weitere Informationen gibt es in einem 
-[Tutorial](http://pygame.org/docs/tut/PygameIntro.html). 
+[Tutorial](http://pygame.org/docs/tut/PygameIntro.html) und der ausführlichen
+[Dokumentation](https://www.pygame.org/docs/).
