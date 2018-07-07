@@ -1,11 +1,11 @@
 # Pygame-Demo
 
-[pygame](http://pygame.org/) ist eine Spiele-Engine für Pythone kann mit pip 
-leicht installiert werden. 
+[pygame](http://pygame.org/) ist eine Spiele-Engine für Python, die mit pip 
+leicht installiert werden kann.
 
     $ pip install pygame
 
-Bei dem Beispiel in [pygamedemo.py](pygamedemo.py) hüpft ein Ball über den Bildschirm. 
+Der Beispiel-Code in [pygamedemo.py](pygamedemo.py) zeigt einen hüpfenden Ball.
 Bei jedem Mausklick auf den Ball ändert der Ball seine Richtung.
 
 Weitere Informationen gibt es in einem 
