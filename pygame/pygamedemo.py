@@ -1,6 +1,4 @@
 import sys
-
-# Pygame installieren: pip install pygame
 import pygame
 
 class Ball(pygame.sprite.Sprite):
@@ -14,26 +12,30 @@ class Ball(pygame.sprite.Sprite):
 
     def update(self):
         """Update called by the update of the Group method."""
-        self.rect = self.rect.move(self.speed)
+        self.rect = self.rect.move(self.speed)  # move in direction
+
+        # bounce from wall if necessary
         if self.rect.left < 0 or self.rect.right > self.screen_width:
-            self.speed[0] = -self.speed[0]
+            self.bounce(xdir=True, ydir=False)
         if self.rect.top < 0 or self.rect.bottom > self.screen_height:
-            self.speed[1] = -self.speed[1]
+            self.bounce(xdir=False, ydir=True)
 
     def is_clicked(self):
         """Check whether this Ball has been clicked."""
         x,y = pygame.mouse.get_pos()
         return self.rect.collidepoint(x, y)
 
-    def bounce(self):
-        self.speed[0] *= -1
+    def bounce(self, xdir=True, ydir=False):
+        """Bounce the ball in x- and/or y-direction."""
+        if xdir:
+            self.speed[0] *= -1
+        if ydir:
+            self.speed[1] *= -1
 
 
 class FizzBuzzGame:
     def __init__(self, width, height):
         pygame.init()
-
-        self.width, self.height = width, height
         self.screen = pygame.display.set_mode((width, height))
         self.sprites = pygame.sprite.GroupSingle(Ball())
 
@@ -41,32 +43,28 @@ class FizzBuzzGame:
         if event.type == pygame.QUIT:
             sys.exit()
 
-        elif event.type == pygame.MOUSEBUTTONDOWN and \
-                self.sprites.sprite.is_clicked():
-
-            self.sprites.sprite.bounce()
+        elif event.type == pygame.MOUSEBUTTONDOWN:
+            if self.sprites.sprite.is_clicked():
+                self.sprites.sprite.bounce()
 
     def start_game_loop(self):
         clock = pygame.time.Clock()
 
         while True:
-            clock.tick(60)  # limit runtime to 60 Frames/Second
-
             # handle events
             for event in pygame.event.get():
                 self.handle_event(event)
 
-            # update all Sprites
-            self.sprites.update()
+            self.sprites.update()  # update all Sprites
 
-            # draw the screen: background, sprites, text
-            self.screen.fill((0,0,0))
-            # for each sprite in the group draw/blit the image into a rect
-            self.sprites.draw(self.screen)
+            self.screen.fill((0,0,0))  # black background
+            self.sprites.draw(self.screen)  # draw sprites on screen
+
             # flip the buffer
             pygame.display.flip()
+            clock.tick(60)  # limit runtime to 60 Frames/Second
 
 
 if __name__ == "__main__":
-    game = FizzBuzzGame(320, 240)
+    game = FizzBuzzGame(width=320, height=240)
     game.start_game_loop()
