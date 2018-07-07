@@ -39,7 +39,7 @@ class GUI:
         # update label
         self.lbl.configure(text="Counter " + str(self.counter))
 
-        # clear the entry field
+        # clear the entry field and inter counter value at beginning
         self.ent.delete(0, tkinter.END)        
         self.ent.insert(0, self.counter)
 
