@@ -1,6 +1,7 @@
 # Pygame-Demo
 
-[pygame](http://pygame.org/) kann mit pip installiert werden. 
+[pygame](http://pygame.org/) ist eine Spiele-Engine für Pythone kann mit pip 
+leicht installiert werden. 
 
     $ pip install pygame
 
