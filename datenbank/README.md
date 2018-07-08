@@ -20,6 +20,6 @@ installiert werden. Dies kann z.B. mit dem folgenden Aufruf geschehen.
 Die weitere Dokumentation von MySQL enthält verschiedene [Beispiele, die
 den Umgang mit einer MySQL-Datenbank 
 zeigen](https://dev.mysql.com/doc/connector-python/en/connector-python-examples.html).
-Der wesentliche Unterschied besteht in der Verwendung des Verbindungsaufgabaus.
+Der wesentliche Unterschied besteht darin, wie eine Verbindung aufgebaut wird.
 Nach dem Abruf eines Cursors mit ``cursor = eine_connection.cursor()`` kann wie
 im Falle von sqlite auf die Datenbank zugegriffen werden.
