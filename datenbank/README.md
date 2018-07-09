@@ -12,7 +12,8 @@ fügt ein paar Daten ein und gibt diese wieder aus.
 ## MySQL
 
 Für den Zugriff auf eine MySQL-Datenbank muss zusätzlich ein 
-[Connector](https://dev.mysql.com/doc/connector-python/en/connector-python-installation-binary.html)
+[Connector für 
+MySQL](https://dev.mysql.com/doc/connector-python/en/connector-python-installation-binary.html)
 installiert werden. Dies kann z.B. mit dem folgenden Aufruf geschehen.
 
     $ pip install mysql-connector-python
