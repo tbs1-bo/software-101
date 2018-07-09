@@ -1,7 +1,7 @@
 # Software 101
 
 Hier findest du grundlegende Beispielprogramme für verschiedene 
-Python-Bibliothken.
+Python-Bibliotheken.
 
 - [tkinter (GUI-Framework)](tkinter/README.md)
 - [Pygame (Game-Engine)](pygame/README.md)
