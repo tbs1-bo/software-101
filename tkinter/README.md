@@ -7,7 +7,8 @@ jeder Python-Installation vorhanden. Das
 das Modul.
 
 Die Beispielanwendung [tkinterdemo.py](tkinterdemo.py) enthält
-einen Button, ein Menü, ein Label, ein Bild und eine Statusbar. Beim Klick
+einen Button, ein Menü, ein Label, ein [Bild](ball.gif) und eine Statusbar. 
+Beim Klick
 auf den Button oder bei Auswahl des Menüs wird der Counter
 hochgezählt. Die GUI-Element werden über ein Grid-Layout in Zeilen
 und Spalten angeordnet.
