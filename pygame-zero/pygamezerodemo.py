@@ -35,15 +35,21 @@ class Ball():
             self.speed[1] *= -1
 
 def update():
-    """Update-Funktion, die für jeden Frame einmal aufgerufen wird."""
+    """Update-Funktion, die für jeden Frame 60 mal pro Sekunde einmal 
+    aufgerufen wird. Hier wird die Spielwelt aktualisiert aber noch nichts
+    gezeichnet."""
     ball.update()
 
 def draw():
-    """Draw-Funktion, die nach dem Update den Bildschirm zeichnet."""    
+    """Draw-Funktion, die nach dem Update den Bildschirm zeichnet."""
     screen.fill((128,0,0))
     ball.actor.draw()
 
 def on_mouse_down(pos):
+    """Eine von verschiedenen Event-Funktionen. Sie wird bei einem
+    Mouseclick aufgerufen. Beim Aufruf wird die Position der Mouse
+    als Parameter übergeben."""
+
     if ball.actor.collidepoint(pos):
         ball.bounce()
 
