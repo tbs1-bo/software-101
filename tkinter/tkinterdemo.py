@@ -16,7 +16,7 @@ class GUI:
         tools_menu.add_command(label="Next", command=self.click)
 
         # add image in a label
-        bild = tkinter.PhotoImage(file="ball.gif")
+        bild = tkinter.PhotoImage(file="ball.gif")  # only GIF or PGM/PPM
         lbl = tkinter.Label(root, image=bild)
         lbl.grid(row=0, column=0)
 
