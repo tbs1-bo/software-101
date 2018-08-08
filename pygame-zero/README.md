@@ -3,8 +3,8 @@
 ## Installation 
 
 [Pygame Zero](http://pygame-zero.readthedocs.io) ist eine auf 
-Pygame aufbauende Bibliothek. Sie kann leicht mit pip installiert
-werden.
+[Pygame](../pygame/README.md) aufbauende Bibliothek. Sie kann 
+leicht mit pip installiert werden.
 
     $ pip install pgzero
 
