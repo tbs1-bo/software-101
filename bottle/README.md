@@ -12,3 +12,7 @@ jeden Pfad, der aufgerufen werden kann, muss eine Route in Bottle deklariert
 werden. Diese Methode muss einfaches HTML an den Browser liefern. Für Dateien
 muss eine separate Route deklariert werden, die Dateien und kein HTML
 ausliefert.
+
+In einem [kommentierten PDF](bottledemo.pdf) werden die wichtigsten Dinge
+zusammenfasst.
+
