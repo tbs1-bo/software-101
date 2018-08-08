@@ -5,6 +5,9 @@
 # screen, actor, Actor und weitere:
 # http://pygame-zero.readthedocs.io/en/stable/builtins.html
 
+# Titel des Fensters
+TITLE = "Pygame Zero Demo"
+
 # Dimensionen des Fensters
 WIDTH = 400
 HEIGHT = 300
