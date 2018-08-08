@@ -18,7 +18,7 @@ class Ball():
         # erwartet. Andere Dateiendungen sind möglich.
         self.actor = Actor("ball", (150,150))
 
-        self.speed = [2, 2]  # speed in x and y direction
+        self.speed = [2, 2]  # Geschwindigkeit in x- und y-Richtung
 
     def update(self):
         ball.actor.x += self.speed[0]
