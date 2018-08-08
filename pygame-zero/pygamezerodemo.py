@@ -18,11 +18,12 @@ class Ball():
         # erwartet. Andere Dateiendungen sind möglich.
         self.actor = Actor("ball", (150,150))
 
-        self.speed = [2, 2]  # Geschwindigkeit in x- und y-Richtung
+        self.speedx = 2  # Geschwindigkeit in x- und y-Richtung
+        self.speedy = 2
 
     def update(self):
-        ball.actor.x += self.speed[0]
-        ball.actor.y += self.speed[1]
+        ball.actor.x += self.speedx
+        ball.actor.y += self.speedy
 
         # Richtung des Balles ändern, wenn der Rand berührt wird
         if self.actor.left < 0 or self.actor.right > WIDTH:
@@ -33,9 +34,9 @@ class Ball():
     def bounce(self, xdir=True, ydir=False):
         """Kehre die X- oder Y-Richtung des Balles um."""
         if xdir:
-            self.speed[0] *= -1
+            self.speedx *= -1
         if ydir:
-            self.speed[1] *= -1
+            self.speedy *= -1
 
 def update():
     """Update-Funktion, die für jeden Frame 60 mal pro Sekunde einmal 
