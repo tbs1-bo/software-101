@@ -6,13 +6,14 @@ class Ball(pygame.sprite.Sprite):
         super().__init__()
         self.image = pygame.image.load("ball.gif")
         self.rect = self.image.get_rect()
-        self.speed = [2, 2]  # speed in x and y direction
+        self.speedx = 2  # speed in x and y direction
+        self.speedy = 2
         self.screen_width = pygame.display.get_surface().get_width()
         self.screen_height = pygame.display.get_surface().get_height()
 
     def update(self):
         """Update called by the update of the Group method."""
-        self.rect = self.rect.move(self.speed)  # move in direction
+        self.rect = self.rect.move((self.speedx, self.speedy))  # move in direction
 
         # bounce from wall if necessary
         if self.rect.left < 0 or self.rect.right > self.screen_width:
@@ -28,9 +29,9 @@ class Ball(pygame.sprite.Sprite):
     def bounce(self, xdir=True, ydir=False):
         """Bounce the ball in x- and/or y-direction."""
         if xdir:
-            self.speed[0] *= -1
+            self.speedx *= -1
         if ydir:
-            self.speed[1] *= -1
+            self.speedy *= -1
 
 
 class FizzBuzzGame:
