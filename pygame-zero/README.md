@@ -16,7 +16,7 @@ Verfügung, mit dem
 die Python-Dateien gestartet werden können. Die Demo-Datei 
 [pygamezerodemo.py](pygamezerodemo.py) zeigt einen rotierenden Ball,
 der in einem Unterodner `images` abgelegt werden muss. Diese Konvention
-hilft *Pygame Zero* Ressourcen wie Bilder, Sounds und Musik an den
+hilft *Pygame Zero* dabei, Ressourcen wie Bilder, Sounds und Musik an den
 richtigen Stellen automatisch zu finden.
 
 Eine [PDF-Version des Demoprogramms](PygameZeroDemo.pdf) enthält weitere 
