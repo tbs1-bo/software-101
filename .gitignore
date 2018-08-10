@@ -1,1 +1,4 @@
 pygame-zero/venv/
+venv
+.idea
+.DS_Store
