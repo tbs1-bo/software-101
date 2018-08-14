@@ -1,4 +1,0 @@
-bottle
-pygame
-pgzero
-
