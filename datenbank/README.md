@@ -25,3 +25,6 @@ Der wesentliche Unterschied besteht darin, wie eine Verbindung aufgebaut wird.
 Nach dem Erzeugen eines Cursors mit ``cursor = eine_connection.cursor()`` kann
 mit einem Aufruf von ``cursor.execute(...)`` wie im Falle von sqlite auf die 
 Datenbank zugegriffen werden.
+
+Das sehr ausführliche [Python MySQL-Tutorial](https://pynative.com/python-mysql-tutorial/)
+geht auf viele Details genauer ein.
