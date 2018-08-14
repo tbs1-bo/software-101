@@ -2,3 +2,4 @@ venv
 .idea
 .DS_Store
 datenbank/datenbank.db
+.ipynb_checkpoints/
