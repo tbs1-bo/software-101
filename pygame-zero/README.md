@@ -19,7 +19,7 @@ der in einem Unterodner `images` abgelegt werden muss. Diese Konvention
 hilft *Pygame Zero* dabei, Ressourcen wie Bilder, Sounds und Musik an den
 richtigen Stellen automatisch zu finden.
 
-Eine [PDF-Version des Demoprogramms](PygameZeroDemo.pdf) enthält weitere 
+Ein [Cheat Sheet](pygame-zero-cheatsheet.pdf) enthält weitere 
 Abbildungen.
 
 ![Ball](images/ball.gif)

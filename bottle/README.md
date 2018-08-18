@@ -13,6 +13,6 @@ werden. Diese Methode muss einfaches HTML an den Browser liefern. Für Dateien
 muss eine separate Route deklariert werden, die Dateien und kein HTML
 ausliefert.
 
-In einem [kommentierten PDF](bottledemo.pdf) werden die wichtigsten Dinge
+In einem [Cheat Sheet](bottle-cheatsheet.pdf) werden die wichtigsten Dinge
 zusammenfasst.
 
