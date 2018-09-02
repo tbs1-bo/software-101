@@ -8,3 +8,4 @@ Python-Bibliotheken.
 - [Pygame Zero (Game-Engine)](pygame-zero/README.md)
 - [Bottle (Web-Framework)](bottle/README.md)
 - [Datenbankzugriff](datenbank/README.md)
+- [Dekoratoren](https://nbviewer.jupyter.org/github/tbs1-bo/software-101/blob/master/decorator/decorator.ipynb)
