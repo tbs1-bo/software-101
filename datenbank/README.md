@@ -1,5 +1,9 @@
 # Datenbankzugriff
 
+Die Verwendung von SQLite in Pyhon wird in einem
+[Jupyter Notebook](https://nbviewer.jupyter.org/github/tbs1-bo/software-101/blob/master/datenbank/datenbank.ipynb)
+beschrieben.
+
 ## Sqlite
 
 Mit dem Python-Paket [sqlite3](https://docs.python.org/library/sqlite3.html)
