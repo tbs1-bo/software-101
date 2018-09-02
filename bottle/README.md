@@ -13,6 +13,7 @@ werden. Diese Methode muss einfaches HTML an den Browser liefern. Für Dateien
 muss eine separate Route deklariert werden, die Dateien und kein HTML
 ausliefert.
 
-In einem [Cheat Sheet](bottle-cheatsheet.pdf) werden die wichtigsten Dinge
-zusammenfasst.
+In einem [Cheat Sheet](bottle-cheatsheet.pdf) und einem
+[Jupyter Notebook](https://nbviewer.jupyter.org/github/tbs1-bo/software-101/blob/master/bottle/bottle.ipynb) 
+werden die wichtigsten Dinge zusammenfasst.
 
