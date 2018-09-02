@@ -12,3 +12,5 @@ Beim Klick
 auf den Button oder bei Auswahl des Menüs wird der Counter
 hochgezählt. Die GUI-Element werden über ein Grid-Layout in Zeilen
 und Spalten angeordnet.
+
+Ein [Notebook](https://nbviewer.jupyter.org/github/tbs1-bo/software-101/blob/master/tkinter/tkintedemo.ipynb) fasst das Wesentliche zusammen.
