@@ -1,19 +1,6 @@
 # Bottle
 
-[Bottle](https://bottlepy.org) ist ein Webframework, das leicht mit pip
-installiert werden kann.
+[Bottle](https://bottlepy.org) ist ein Webframework für Python.
 
-    $ pip install bottle
-
-Das Demoprogramm [bottledemo.py](bottledemo.py) zeigt eine Webseite mit einem
-[Bild](ball.gif) und einer Zahl, die sich bei jedem Refresh durch den Browser
-ändert. Für
-jeden Pfad, der aufgerufen werden kann, muss eine Route in Bottle deklariert
-werden. Diese Methode muss einfaches HTML an den Browser liefern. Für Dateien
-muss eine separate Route deklariert werden, die Dateien und kein HTML
-ausliefert.
-
-In einem [Cheat Sheet](bottle-cheatsheet.pdf) und einem
-[Jupyter Notebook](https://nbviewer.jupyter.org/github/tbs1-bo/software-101/blob/master/bottle/bottle.ipynb) 
-werden die wichtigsten Dinge zusammenfasst.
-
+Ein Notebook erläutert die wesentlichen Funktionen in einer
+[Einführung in Bottle](https://nbviewer.jupyter.org/github/tbs1-bo/software-101/blob/master/bottle/bottle.ipynb) 
