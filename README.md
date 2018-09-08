@@ -3,7 +3,7 @@
 Hier findest du grundlegende Beispielprogramme für verschiedene 
 Python-Bibliotheken.
 
-- [Grundlagen Python](python_intro/README.md)
+- [Grundlagen Python](python/README.md)
 - [tkinter (GUI-Framework)](tkinter/README.md)
 - [Pygame (Game-Engine)](pygame/README.md)
 - [Pygame Zero (Game-Engine)](pygame-zero/README.md)
