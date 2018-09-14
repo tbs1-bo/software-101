@@ -21,7 +21,7 @@ richtigen Stellen automatisch zu finden.
 
 Ein [Cheat Sheet](pygame-zero-cheatsheet.pdf) enthält weitere 
 Abbildungen. Ein Notebook enthält eine 
-[schrittweise Einführung](https://nbviewer.jupyter.org/github/tbs1-bo/software-101/blob/master/pygame-zero/pygamezero_demo.ipynb)) 
+[schrittweise Einführung](https://nbviewer.jupyter.org/github/tbs1-bo/software-101/blob/master/pygame-zero/pgzero_demo.ipynb)
 in die Bibliothek.
 
 ![Ball](images/ball.gif)
