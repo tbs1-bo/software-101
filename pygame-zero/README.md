@@ -20,7 +20,9 @@ hilft *Pygame Zero* dabei, Ressourcen wie Bilder, Sounds und Musik an den
 richtigen Stellen automatisch zu finden.
 
 Ein [Cheat Sheet](pygame-zero-cheatsheet.pdf) enthält weitere 
-Abbildungen.
+Abbildungen. Ein Notebook enthält eine 
+[schrittweise Einführung](https://nbviewer.jupyter.org/github/tbs1-bo/software-101/blob/master/pygame-zero/pygamezero_demo.ipynb)) 
+in die Bibliothek.
 
 ![Ball](images/ball.gif)
 
