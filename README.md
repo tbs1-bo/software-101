@@ -10,4 +10,5 @@ Python-Bibliotheken.
 - [Bottle (Web-Framework)](bottle/README.md)
 - [Matplotlib](matplotlib/README.md)
 - [Datenbankzugriff](datenbank/README.md)
+- [Netzwerkprogrammierung](netzwerk/README.md)
 - [Dekoratoren](decorator/README.md)
