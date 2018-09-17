@@ -3,3 +3,4 @@ venv
 .DS_Store
 datenbank/datenbank.db
 .ipynb_checkpoints/
+venv3.7/
