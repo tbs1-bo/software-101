@@ -6,3 +6,6 @@ datenbank/datenbank.db
 venv3.7/
 .mypy_cache/
 __pycache__/
+
+unittest/person.py
+unittest/person_test.py
