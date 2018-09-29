@@ -5,3 +5,4 @@ datenbank/datenbank.db
 .ipynb_checkpoints/
 venv3.7/
 .mypy_cache/
+__pycache__/
