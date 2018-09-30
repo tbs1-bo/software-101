@@ -160,6 +160,30 @@ pgzrun demo.py
     Hello from the pygame community. https://www.pygame.org/contribute.html
 
 
+## Sound
+
+Sounds werde so ähnlich wie Bilder gehandhabt. Es muss ein Verzeichnis `sounds` existieren, indem sich die Sounddateien (als WAV) befinden.
+
+
+```python
+
+def on_mouse_down(pos):
+    sounds.punch.play()  # play sounds/punch.wav
+```
+
+
+
+Der Sound [sounds/punch.wav](sounds/punch.wav) wird nun bei jedem Klick abgespielt.
+
+
+```python
+pgzrun demo.py
+```
+
+    pygame 1.9.4
+    Hello from the pygame community. https://www.pygame.org/contribute.html
+
+
 ## Objekt-Orientierte Bälle
 
 Nun soll das Programm objekt-orientiert mit einer Klasse umgesetzt werden. Das ermöglicht es uns, mit mehreren Bällen unabhängig umgehen zu können.
