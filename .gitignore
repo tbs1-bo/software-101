@@ -10,3 +10,4 @@ __pycache__/
 unittest/person.py
 unittest/person_test.py
 typen/typentest.py
+pygame-zero/demo.py
