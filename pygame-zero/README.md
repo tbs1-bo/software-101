@@ -66,7 +66,7 @@ python3 demo.py
 
 ## Gameloop
 
-Eine gameloop einer Spieler-Engine ist nach dem folgenden Muster aufgebaut.
+Eine gameloop einer Spiele-Engine ist nach dem folgenden Muster aufgebaut.
 
     while game_has_not_ended():
         process_input()
