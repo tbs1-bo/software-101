@@ -64,6 +64,17 @@ python3 demo.py
     Hello from the pygame community. https://www.pygame.org/contribute.html
 
 
+## Gameloop
+
+Eine gameloop einer Spieler-Engine ist nach dem folgenden Muster aufgebaut.
+
+    while game_has_not_ended():
+        process_input()
+        update()
+        draw()
+
+Und genau so funktioniert auch die Gameloop bei Pygame-Zero: Zunächst werden die Eingaben verarbeitet (`process_input`), dann die Spielwelt aktualisiert (`update`) und schließlich die veränderte Spielwelt gezeichnet (`draw`). Das passiert ca. 60 mal in der Sekunde.
+
 ## Bilder
 
 Ein Verzeichnis `images` enthält Bilder, die automatisch geladen werden.
