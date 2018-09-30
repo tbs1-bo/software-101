@@ -12,4 +12,5 @@ Python-Bibliotheken.
 - [Matplotlib](matplotlib/README.md)
 - [Datenbankzugriff](datenbank/README.md)
 - [Netzwerkprogrammierung](netzwerk/README.md)
+- [Type-Hints](typen/README.md)
 - [Dekoratoren](decorator/README.md)
