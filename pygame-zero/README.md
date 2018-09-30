@@ -37,6 +37,33 @@ pgzrun demo.py
     Hello from the pygame community. https://www.pygame.org/contribute.html
 
 
+## Start ohne pgzrun
+
+Alternativ kann ein Programm auch direkt über Python gestartet werden. Dazu muss das Modul `pgzrun` importiert und am Ende des Programms aufgerufen werden.
+
+
+```python
+
+import pgzrun
+
+WIDTH = 300
+HEIGHT = 300
+
+# run main gameloop
+pgzrun.go()
+```
+
+
+
+
+```python
+python3 demo.py
+```
+
+    pygame 1.9.4
+    Hello from the pygame community. https://www.pygame.org/contribute.html
+
+
 ## Bilder
 
 Ein Verzeichnis `images` enthält Bilder, die automatisch geladen werden.
