@@ -162,7 +162,7 @@ pgzrun demo.py
 
 ## Sound
 
-Sounds werde so ähnlich wie Bilder gehandhabt. Es muss ein Verzeichnis `sounds` existieren, indem sich die Sounddateien (als WAV) befinden.
+Sounds werde so ähnlich wie Bilder gehandhabt. Es muss ein Verzeichnis `sounds` existieren, in dem sich die Sounddateien (als WAV) befinden.
 
 
 ```python
