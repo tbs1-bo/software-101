@@ -10,4 +10,4 @@ jupyter nbconvert --to markdown --output $FILEMD $FILE
 # remove magic cell information
 # -i work in-place with no backup files ("")
 #
-sed -i '' -e "/%%writefile/d; /^    Writing /d; /^    Overwriting/d; s/^! //" $DIR/$FILEMD
+sed -i '' -e "/%%writefile/d; /^    Writing /d; /^    Overwriting/d; /^    Appending/d; s/^! //" $DIR/$FILEMD
