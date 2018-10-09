@@ -160,9 +160,9 @@ python3 -m unittest person_test.py
 
 # Doctest
 
-Eine Besonderheit von Python sind doctests. Darunter versteht man Kommentare im Quelltext, die gleichzeitig automatisch getestet werden können.
+Eine Besonderheit von Python sind doctests. Darunter versteht man Kommentare im Quelltext, die gleichzeitig getestet werden können.
 
-Wir verwenden wieder die defekte Version der Klasse Person. Kommentare ähneln nun einer Interpreter-Sitzung und werden bei einem Test ausgeführt. Eingaben beginnen mit `>>>` und Ausgaben stehen direkt darunter.
+Wir verwenden wieder die defekte Version der Klasse Person. Kommentare ähneln nun einer Interpreter-Sitzung und werden bei einem Test ausgeführt. Eingaben beginnen mit `>>>` und erwartete Ausgaben stehen direkt darunter.
 
 
 ```python
@@ -193,6 +193,8 @@ class Person:
         self.alter += jahre
 ```
 
+Mit Hilfe des Moduls `doctest` kann das aktuelle Modul mit der Methode `testmod` getestet werden.
+
 
 ```python
 import doctest
@@ -220,8 +222,7 @@ doctest.testmod()
 
 
 
-Der Fehler taucht bei der Verwendung `altern(-10)` auf.
-Mit einer geänderten Version der Methode `altern` klappen die Tests schließlich wieder.
+Wir sehen einen Fehler. Er taucht bei der Verwendung `altern(-10)` auf. Wir müssen die Methode `altern` reparieren. Das Alter soll sich nicht ändern, wenn der Änderungswert negativ ist. Mit einer geänderten Version der Methode klappen die Tests schließlich wieder.
 
 
 ```python
@@ -252,6 +253,8 @@ class Person:
         if jahre >= 0:
             self.alter += jahre
 ```
+
+Erneut lassen wir die Tests laufen.
 
 
 ```python
