@@ -157,3 +157,112 @@ python3 -m unittest person_test.py
     
     OK
 
+
+# Doctest
+
+Eine Besonderheit von Python sind doctests. Darunter versteht man Kommentare im Quelltext, die gleichzeitig automatisch getestet werden können.
+
+Wir verwenden wieder die defekte Version der Klasse Person. Kommentare ähneln nun einer Interpreter-Sitzung und werden bei einem Test ausgeführt. Eingaben beginnen mit `>>>` und Ausgaben stehen direkt darunter.
+
+
+```python
+class Person:
+    '''Eine Person. Die Klasse kann wie folgt verwendet werden.
+    
+    >>> peter = Person("Person", 21)
+    >>> peter.alter
+    21
+    
+    >>> peter.altern(1)
+    >>> peter.alter
+    22
+    
+    Wenn ein negativer Wert für altern verwendet wird, so 
+    ändert sich das Alter nicht.
+    
+    >>> peter.altern(-10)
+    >>> peter.alter
+    22
+    
+    '''
+    def __init__(self, name, alter):
+        self.name = name
+        self.alter = alter
+        
+    def altern(self, jahre):
+        self.alter += jahre
+```
+
+
+```python
+import doctest
+doctest.testmod()
+```
+
+    **********************************************************************
+    File "__main__", line ?, in __main__.Person
+    Failed example:
+        peter.alter
+    Expected:
+        22
+    Got:
+        12
+    **********************************************************************
+    1 items had failures:
+       1 of   6 in __main__.Person
+    ***Test Failed*** 1 failures.
+
+
+
+
+
+    TestResults(failed=1, attempted=6)
+
+
+
+Der Fehler taucht bei der Verwendung `altern(-10)` auf.
+Mit einer geänderten Version der Methode `altern` klappen die Tests schließlich wieder.
+
+
+```python
+class Person:
+    '''Eine Person. Die Klasse kann wie folgt verwendet werden.
+    
+    >>> peter = Person("Person", 21)
+    >>> peter.alter
+    21
+    
+    >>> peter.altern(1)
+    >>> peter.alter
+    22
+    
+    Wenn ein negativer Wert für altern verwendet wird, so 
+    ändert sich das Alter nicht.
+    
+    >>> peter.altern(-10)
+    >>> peter.alter
+    22
+    
+    '''
+    def __init__(self, name, alter):
+        self.name = name
+        self.alter = alter
+        
+    def altern(self, jahre):
+        if jahre >= 0:
+            self.alter += jahre
+```
+
+
+```python
+doctest.testmod()
+```
+
+
+
+
+    TestResults(failed=0, attempted=6)
+
+
+
+Wir erhalten keine Ausgaben. Dies zeigt an, dass die Tests durchgelaufen sind.
