@@ -266,3 +266,188 @@ doctest.testmod()
 
 
 Wir erhalten keine Ausgaben. Dies zeigt an, dass die Tests durchgelaufen sind.
+
+# Pytest
+
+Das Modul [pytest](https://docs.pytest.org) ist ein Python-Modul, das den Entwickler beim Testen unterstützen will. 
+
+## Installation
+
+Die Installation erfolgt mit pip.
+
+  - Linux/MacOS: `pip3 install pytest` oder `python3 -m pip install pytest`
+  - Windows: `pip install pytest` oder `python -m pip install pytest` oder `py -m pip install pytest`
+  
+Danach steht ein Befehl `pytest` zur Verfügung, mit dem die Tests durchgeführt werden.
+
+
+```python
+pytest
+```
+
+    ============================= test session starts ==============================
+    platform linux -- Python 3.5.2, pytest-3.8.2, py-1.6.0, pluggy-0.7.1
+    rootdir: /home/marco/proj/software-101/testing, inifile:
+    collected 0 items                                                              
+    
+    ========================= no tests ran in 0.00 seconds =========================
+
+
+## Pytest-Beispiele
+
+Wir verwenden wieder die bekannte Klasse Person und ergänzen sie um eine Methode `test_person`. Methoden, die mit `test` beginnen, werden von pytest für die Tests genutzt. Die eigentlichen Annahmen, werden mit gewöhnlichen `assert`-Statements durchgeführt. Dadurch müssen keine weiteren Bibliotheken importiert werden.
+
+
+```python
+
+class Person:
+    def __init__(self, name, alter):
+        self.name = name
+        self.alter = alter
+        
+    def altern(self, jahre):
+        self.alter += jahre
+        
+def test_person():
+    p = Person("Hans", 18)
+        
+    vorher = p.alter
+    p.altern(1)
+    
+    assert p.alter > vorher
+    assert p.alter == 19
+
+    p.altern(-100)  # Das sollte nicht funktionieren dürfen
+    assert p.alter > 0, "Die Person hat ein negatives Alter!"        
+```
+
+
+
+Wenn wir die Tests nun ausführen, schlagen sie wie erwartet fehlt.
+
+
+```python
+pytest person.py
+```
+
+    ============================= test session starts ==============================
+    platform linux -- Python 3.5.2, pytest-3.8.2, py-1.6.0, pluggy-0.7.1
+    rootdir: /home/marco/proj/software-101/testing, inifile:
+    collected 1 item                                                               
+    
+    person.py F                                                              [100%]
+    
+    =================================== FAILURES ===================================
+    _________________________________ test_person __________________________________
+    
+        def test_person():
+            p = Person("Hans", 18)
+        
+            vorher = p.alter
+            p.altern(1)
+        
+            assert p.alter > vorher
+            assert p.alter == 19
+        
+            p.altern(-100)  # Das sollte nicht funktionieren dürfen
+    >       assert p.alter > 0, "Die Person hat ein negatives Alter!"
+    E       AssertionError: Die Person hat ein negatives Alter!
+    E       assert -81 > 0
+    E        +  where -81 = <person.Person object at 0x7f5341e4bdd8>.alter
+    
+    person.py:20: AssertionError
+    =========================== 1 failed in 0.04 seconds ===========================
+
+
+Wir korrigieren nun erneut die Methode `altern` und ändern das Alter nur, wenn der Änderungswert positiv ist.
+
+
+```python
+
+class Person:
+    def __init__(self, name, alter):
+        self.name = name
+        self.alter = alter
+        
+    def altern(self, jahre):
+        if jahre >= 0:  # Korrektur
+            self.alter += jahre  
+        
+def test_person():
+    p = Person("Hans", 18)
+        
+    vorher = p.alter
+    p.altern(1)
+    
+    assert p.alter > vorher
+        
+    assert p.alter == 19
+
+    p.altern(-100)  # Das sollte nicht funktionieren dürfen
+    assert p.alter > 0, "Die Person hat ein negatives Alter!"        
+```
+
+
+
+
+```python
+pytest person.py
+```
+
+    ============================= test session starts ==============================
+    platform linux -- Python 3.5.2, pytest-3.8.2, py-1.6.0, pluggy-0.7.1
+    rootdir: /home/marco/proj/software-101/testing, inifile:
+    collected 1 item                                                               
+    
+    person.py .                                                              [100%]
+    
+    =========================== 1 passed in 0.02 seconds ===========================
+
+
+Nun sind die Tests erfolgreich durchgelaufen.
+
+Doch wie testet man, ob ein Fehler auftritt? Wenn das Ändern des Alters mit einem negativen Wert zu einem Fehler führen soll, kann auch dies getestet werden. Dafür wird der Teil, der einen Fehler erzeugen soll, in einen try-except-Block platziert.
+
+
+```python
+
+class Person:
+    def __init__(self, name, alter):
+        self.name = name
+        self.alter = alter
+        
+    def altern(self, jahre):
+        if jahre >= 0:
+            self.alter += jahre  
+        else:
+            raise ValueError("Keine negativen Werte erlaubt") # Fehler erzeugen
+        
+def test_person_mit_Fehler():
+    p = Person("Hans", 18)
+        
+    try:
+        p.altern(-100)  # Fehler soll auftreten -> Sprung in Except-Zweig
+        assert False  # Diese Zeile schlägt immer fehl
+    except ValueError:
+        assert p.alter > 0, "Die Person hat ein negatives Alter!"        
+    
+```
+
+
+
+
+```python
+pytest person.py
+```
+
+    ============================= test session starts ==============================
+    platform linux -- Python 3.5.2, pytest-3.8.2, py-1.6.0, pluggy-0.7.1
+    rootdir: /home/marco/proj/software-101/testing, inifile:
+    collected 1 item                                                               
+    
+    person.py .                                                              [100%]
+    
+    =========================== 1 passed in 0.02 seconds ===========================
+
+
+Die Tests waren erfolgreich, da die Exception wie erwartet aufgetreten ist.
