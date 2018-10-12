@@ -5,6 +5,7 @@ Python-Bibliotheken.
 
 - [Grundlagen Python](python/README.md)
 - [Softwaretests](testing/README.md)
+- [guizero (einfaches GUI-Framework)](guizero/README.md)
 - [tkinter (GUI-Framework)](tkinter/README.md)
 - [Pygame (Game-Engine)](pygame/README.md)
 - [Pygame Zero (Game-Engine)](pygame-zero/README.md)
