@@ -317,3 +317,5 @@ window.show()
 
 app.exec_()
 ```
+
+Eine Verbindung zwischen Tabellen, wie sie bei 1-n-Beziehungen auftritt, kann über ein anderes TableModel realisiert werden: das [QSqlRelationalTableModel](http://doc.qt.io/qt-5/qsqlrelationaltablemodel.html#details).
