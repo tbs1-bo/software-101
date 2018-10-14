@@ -80,7 +80,7 @@ Um ein neues GUI-Design erstellen zu können, wähle im Qt-Creator
 
 ![qt-creator](media/qt_creator.png)
 
-Erstelle nun zwei PushButton, einen [TableView](http://doc.qt.io/qt-5/qtableview.html#details) und ein Label mit den Namen btn_submit, btn_add_row, tableView und lbl_status. Die fertige Datei hat den Namen [mainwindow.ui](mainwindow.ui). Es handelt sich um eine XML-Datei, die von pyqt eingelesen und in Python-Quelltext umgewandelt werden kann.
+Erstelle nun zwei PushButton, einen TableView und ein Label mit den Namen btn_submit, btn_add_row, tableView und lbl_status. Die fertige Datei hat den Namen [mainwindow.ui](mainwindow.ui). Es handelt sich um eine XML-Datei, die von pyqt eingelesen und in Python-Quelltext umgewandelt werden kann.
 
 
 ```python
@@ -257,8 +257,6 @@ sqlite3 --column --header db.sqlite 'SELECT * FROM person'
 
 
 Wir erstellen nun die Klasse `MainWindow`, die von der Klasse `Ui_mainWindow` erbt - letzte stammt aus der generierten Datei `mainwindow.py`. Wir ändern nichts in der generierten Datei, damit spätere Änderungen an der GUI und ein anschließendes neues Erzeugen unsere Mühen nicht kaputt machen.
-
-Die Daten für den TableView werden aus einem [QSqlTableModel](http://doc.qt.io/qt-5/qsqltablemodel.html#details) geladen. Dieses Modell stellt Daten aus einer Datenbank zur Verfügung.
 
 
 ```python
