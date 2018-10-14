@@ -28,20 +28,17 @@ app = QApplication([])
 label = QLabel('Hallo Welt!')
 label.show()
 app.exec_()
+print("finished")
 ```
 
-
-
-
-    0
-
+    finished
 
 
 Die Klasse `QApplication` stellt die Hauptanwendung dar. Sie erhält Parameter als Übergabewert. In diesem Fall eine leere Liste, wenn es keine Parameter gibt.
 
 ## Interaktion mit einem Button
 
-Nun soll eine etwas Leben ins Spiel kommen und eine Anwendung entstehen, die einen Button enthält. Für die Verknüpfung von Ereigenisse mit Aktionen nutzt Qt "Signals" (die Ereignisse) und "Slots" als Methoden, die auf die Ereignisse reagieren.
+Nun soll etwas Leben ins Spiel kommen und eine Anwendung entstehen, die einen Button enthält. Damit der Button etwas tut, wenn man auf ihn drückt, müssen wir ihn mit einer Methode verknüpfen. Für die Verknüpfung von Ereignissen mit Aktionen nutzt Qt "Signals" (die Ereignisse) und "Slots" als Methoden, die auf die Ereignisse reagieren.
 
 ![click mich](media/click_mich.png)
 
@@ -71,7 +68,7 @@ app.exec_()
 
 ## QtCreator und QtDesigner
 
-Das Erstellen einer GUI ist in Qt besonders einfach, da ein mächtiger GUI-Editor mitgeliefert wird. Mit ihm kann die GUI erstellt und als ui-Datei gespeichert werden. Dies sind XML-Dokumente, die von pyqt eingelesen und in Python-Quelltext umgewandelt werden können.
+Das Erstellen einer GUI ist in Qt besonders einfach, da ein mächtiger GUI-Editor mitgeliefert wird. Mit ihm kann die GUI erstellt und als ui-Datei (ui=user interface) gespeichert werden.
 
 ## Neues Design erstellen
 
@@ -83,24 +80,24 @@ Um ein neues GUI-Design erstellen zu können, wähle im Qt-Creator
 
 ![qt-creator](media/qt_creator.png)
 
-Erstelle nun zwei PushButton, einen TableView und ein Label mit den Namen btn_submit, btn_add_row, tableView und lbl_status. Die fertige Datei hat den Namen [mainwindow.ui](mainwindow.ui).
+Erstelle nun zwei PushButton, einen TableView und ein Label mit den Namen btn_submit, btn_add_row, tableView und lbl_status. Die fertige Datei hat den Namen [mainwindow.ui](mainwindow.ui). Es handelt sich um eine XML-Datei, die von pyqt eingelesen und in Python-Quelltext umgewandelt werden kann.
 
 
 ```python
 file mainwindow.ui
 ```
 
-    mainwindow.ui: XML 1.0 document, ASCII text
+    mainwindow.ui: XML 1.0 document text, ASCII text
 
 
-Um aus einer ui-Datei Python-Quelltext zu erzeugen, wird das Kommandozeilentool `pyuic5` mitgeliefert.
+Um aus einer ui-Datei Python-Quelltext zu erzeugen, wird das Kommandozeilentool `pyuic5` mitgeliefert (uic=user interface compiler).
 
 
 ```python
 pyuic5 -x -o mainwindow.py mainwindow.ui
 ```
 
-Der Parameter `-o` bestimmt den Name der Ausgabedatei. Durch `-x` wird zusätzlich ein kleines Rahmenprogramm generiert, wodurch die GUI schnell angezeigt werden kann.
+Der Parameter `-o` bestimmt den Name der Ausgabedatei. Durch `-x` wird zusätzlich ein kleines Rahmenprogramm generiert, womit die GUI schnell angezeigt werden kann.
 
 
 ```python
@@ -182,7 +179,7 @@ cat mainwindow.py
 
 ## Eine komplexere Anwendung mit Datenbank-Anbindung
 
-Probieren wir uns nun an einer komplexeren Anwendung, die auf eine Datenbank zugreift, sie darstellt und eine Änderung an den Daten ermöglicht.
+Probieren wir uns nun an einer komplexeren Anwendung, die auf eine Datenbank zugreift, sie darstellt und eine Änderung der Daten ermöglicht.
 
 ## Erstellen einer Datenbank
 
@@ -193,7 +190,7 @@ Zunächst erstellen wir eine sqlite-Datenbank und darin eine Tabelle Person mit 
 rm db.sqlite
 ```
 
-Wir legen ein paar Konstanten, die für die gesamte Anwendung geleten sollen. Der Name der Datenbank, die Anzahl der zufällig zu erzeugenden Daten, eine Auswahl von Namen, die zufällig gewählt werden und das CREATE-Statement für die Erstellung der Tabelle person.
+Wir legen ein paar Konstanten fest, die für die gesamte Anwendung gelten sollen. Der Name der Datenbank, die Anzahl der zufällig zu erzeugenden Daten, eine Auswahl von Namen, die zufällig gewählt werden und das CREATE-Statement für die Erstellung der Tabelle person.
 
 Das CREATE enthält zusätlich einen CONSTRAINT, der für das Geschlecht nur die Werte 'w', 'm' und 'x' zulässt.
 
@@ -285,7 +282,7 @@ class MainWindow(mainwindow.Ui_mainWindow):
         db = QSqlDatabase.addDatabase('QSQLITE')
         db.setDatabaseName(self.dbfile)
 
-        # the table model will show the data from the db int the tableview
+        # the table model will show the data from the db in the tableview
         self.tablemodel = QSqlTableModel()
         self.tablemodel.setTable('person')
         self.tablemodel.setEditStrategy(QSqlTableModel.OnManualSubmit)
@@ -304,7 +301,7 @@ class MainWindow(mainwindow.Ui_mainWindow):
         self.tablemodel.insertRows(self.tablemodel.rowCount(), 1)
 ```
 
-Schließlich rufen wir die neue Klasse auf.
+Schließlich erzeugen wir eine neue Instanz der Klasse und starten das Programm.
 
 ![anwendung](media/sql_demo_anwendung.png)
 
