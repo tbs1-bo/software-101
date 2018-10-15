@@ -1,3 +1,2 @@
 pyqt5
 pyqtdeploy
-jupyter-contrib-nbextensions
