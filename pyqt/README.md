@@ -319,3 +319,135 @@ app.exec_()
 ```
 
 Eine Verbindung zwischen Tabellen, wie sie bei 1-n-Beziehungen auftritt, kann über ein anderes TableModel realisiert werden: das [QSqlRelationalTableModel](http://doc.qt.io/qt-5/qsqlrelationaltablemodel.html#details).
+
+## Deployment
+
+
+Wenn die Awendung erstellt, soll sie natürlich auch auf anderen Rechnern laufen können. Um Programmversion zu erstellen, die alle notwendigen Komponenten enthält, bringt pyqt das Programm `pyqtdeploy` und `pyqtdeploy-build` mit. Deren Bedienung ist leider etwas komplizierter. Daher stelle ich an dieser Stelle die Verwendung von [fbs](https://build-system.fman.io/) vor.
+
+## Installation - fbs
+
+Die Installation erfolgt wieder mit pip. Der Paketname lautet fbs: `pip install fbs`. Danach steht ein Modul fbs zur Verfügung.
+
+
+```python
+python -m fbs
+```
+
+    usage: python -m fbs [-h] {run,installer,clean,test,freeze,startproject} ...
+    
+    fbs
+    
+    positional arguments:
+      {run,installer,clean,test,freeze,startproject}
+        run                 Run your app from source
+        installer           Create an installer for your app
+        clean               Remove previous build outputs
+        test                Execute your automated tests
+        freeze              Compile your application to a standalone executable
+        startproject        Start a new fbs project in the current directory
+    
+    optional arguments:
+      -h, --help            show this help message and exit
+
+
+## fbs-Projekt erstellen, ausführen, einfrieren
+
+Mit dem Kommando `startproject` wird ein Beispielprojekt erstellt.
+
+    python -m fbs startproject
+    
+Nach Angabe eines Projektnamens wird ein Verzeichnis `src` mit einem Minimalprojekt erstellt.
+
+
+```python
+tree -d src
+```
+
+    src
+    ├── build
+    │   └── settings
+    └── main
+        ├── icons
+        │   ├── base
+        │   ├── linux
+        │   └── mac
+        ├── NSIS
+        ├── python
+        │   └── __pycache__
+        └── resources
+            └── mac-frozen
+                └── Contents
+    
+    13 directories
+
+
+Wir konzenrtrieren uns an dieser Stelle auf den Ordner `src/main/python`. In diesem befindet sich die Datei `main.py`, die das Hauptprogramm enthält. Die anderen Ordner bieten Konfigurationsmöglichkeiten für verschiedene Zielplattformen zur Verfügung.
+
+
+```python
+tree src/main/python
+
+```
+
+    src/main/python
+    ├── main.py
+    └── __pycache__
+        └── main.cpython-35.pyc
+    
+    1 directory, 2 files
+
+
+Diese Datei ersetzen wird nun mit unserem Beispielprogramm.
+
+
+```python
+cp mainwindow.py src/main/python/main.py
+```
+
+Mit dem Befehl `run` kann das Porgramm testweise gestartet werden.
+
+
+```python
+python -m fbs run
+```
+
+    QApplication: invalid style override passed, ignoring it.
+
+
+Das Fenster öffnet sich und die Anwendung kann getestet werden. Mit dem Befehl `freeze` wird die Anwendung eingefrorern. Das bedeutet, dass alle benötigten Bibliotheken in einem Verzeichnis gesammelt werden.
+
+
+```python
+python -m fbs freeze
+```
+
+    3788 WARNING: Hidden import "sip" not found!
+    3789 WARNING: Hidden import "sip" not found!
+    4118 WARNING: Hidden import "sip" not found!
+    4193 WARNING: Hidden import "sip" not found!
+    4195 WARNING: Hidden import "sip" not found!
+    4252 WARNING: Hidden import "sip" not found!
+
+
+Im Ordner `target` werden die eingefrorenen Anwendungen abglegt.
+
+
+```python
+tree -d target/MainWindow
+```
+
+    target/MainWindow
+    └── PyQt5
+        └── Qt
+            └── plugins
+                ├── iconengines
+                ├── imageformats
+                ├── platforms
+                ├── platformthemes
+                └── printsupport
+    
+    8 directories
+
+
+Dieser Ordner `target/MainWindow` - allgemein `target/PROJKETNAME` - kann auf den Zielrechner kopiert werden und enthällt alle benötigten Dateien.
