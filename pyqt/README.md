@@ -322,8 +322,7 @@ Eine Verbindung zwischen Tabellen, wie sie bei 1-n-Beziehungen auftritt, kann ü
 
 ## Deployment
 
-
-Wenn die Awendung erstellt, soll sie natürlich auch auf anderen Rechnern laufen können. Um Programmversion zu erstellen, die alle notwendigen Komponenten enthält, bringt pyqt das Programm `pyqtdeploy` und `pyqtdeploy-build` mit. Deren Bedienung ist leider etwas komplizierter. Daher stelle ich an dieser Stelle die Verwendung von [fbs](https://build-system.fman.io/) vor.
+Nachdem die Awendung erstellt wurde, soll sie natürlich auch auf anderen Rechnern laufen können. Um ein Programmversion zu erstellen, die alle notwendigen Komponenten enthält, bringt pyqt das Programm `pyqtdeploy` und `pyqtdeploy-build` mit. Deren Bedienung ist leider etwas komplizierter. Daher stelle ich an dieser Stelle die Verwendung von [fbs](https://build-system.fman.io/) vor.
 
 ## Installation - fbs
 
@@ -382,7 +381,7 @@ tree -d src
     13 directories
 
 
-Wir konzenrtrieren uns an dieser Stelle auf den Ordner `src/main/python`. In diesem befindet sich die Datei `main.py`, die das Hauptprogramm enthält. Die anderen Ordner bieten Konfigurationsmöglichkeiten für verschiedene Zielplattformen zur Verfügung.
+Wir konzenrtrieren uns an dieser Stelle auf den Ordner `src/main/python`. In diesem befindet sich die Datei `main.py`, die das Hauptprogramm enthält. Die anderen Ordner bieten Konfigurationsmöglichkeiten für verschiedene Zielplattformen.
 
 
 ```python
@@ -398,7 +397,7 @@ tree src/main/python
     1 directory, 2 files
 
 
-Diese Datei ersetzen wird nun mit unserem Beispielprogramm.
+Die Datei `main.py` ersetzen wird nun durch unser Beispielprogramm.
 
 
 ```python
@@ -450,4 +449,4 @@ tree -d target/MainWindow
     8 directories
 
 
-Dieser Ordner `target/MainWindow` - allgemein `target/PROJKETNAME` - kann auf den Zielrechner kopiert werden und enthällt alle benötigten Dateien.
+Dieser Ordner `target/MainWindow` - allgemein `target/PROJKETNAME` - kann auf den Zielrechner kopiert werden und enthällt alle benötigten Dateien. Darin befindet sich eine Datei `MainWindow` (unter Linux) oder `MainWindow.exe`, die ausgeführt werden kann.
