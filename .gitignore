@@ -14,3 +14,5 @@ typen/typentest.py
 pygame-zero/demo.py
 pyqt/db.sqlite
 pyqt/mainwindow.py
+pyqt/src/
+pyqt/target/
