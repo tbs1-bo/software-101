@@ -1,7 +1,3 @@
-- add pyqt add fbs deploy 
-  https://build-system.fman.io/pyqt5-tutorial
-  https://www.tutorialspoint.com/pyqt/pyqt_database_handling.htm
-  fbs: linux no problem, win needs big sdk to be downloaded.
 - add mqtt
 - add "deployment to pypi"/packaging 
   https://packaging.python.org/tutorials/packaging-projects/
