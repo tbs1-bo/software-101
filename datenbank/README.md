@@ -8,7 +8,7 @@ Für die folgenden Beispiele wollen wir eine Tabelle Personen(nr, name) mit den 
 TESTDATEN = [[101, "Peter"], 
              [102, "Petra"], 
              [103, "Hans"], 
-             [104,"Claudia"]]
+             [104, "Claudia"]]
 ```
 
 ## Sqlite
@@ -151,7 +151,7 @@ conn = mysql.connector.connect(user='root', password='',
                               host='127.0.0.1',
                               database='test')
 c = conn.cursor()
-c.execute("""DROP TABLE IF EXISTS personen""")
+c.execute("DROP TABLE IF EXISTS personen")
 c.execute("""CREATE TABLE IF NOT EXISTS 
           personen(nr int, name text)""")
 
@@ -174,7 +174,7 @@ mysql -uroot --execute="SHOW TABLES;" test
 
 Nun können wir neue Daten in die Tabelle einfügen.
 
-**Achtung:** Die Platzhalter beim Einfügen werden unter MySQL anders angegeben. Außerdem muss die Anweisung mit einem COMMIT in die Datenbank übertragen werden.
+**Achtung:** Die Platzhalter beim Einfügen werden unter MySQL anders angegeben.
 
 
 ```python
