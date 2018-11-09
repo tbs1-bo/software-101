@@ -94,7 +94,6 @@ w.run()
 
 Die Klasse `Picture` kann genutzt werden, um [Bilder anzuzeigen](https://lawsie.github.io/guizero/images/). Hierfür wird das folgende Bild `ball.gif` verwendet.
 
-![Ball](ball.gif)
 ![blank](with_label.png)
 
 
