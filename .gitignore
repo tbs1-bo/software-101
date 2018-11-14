@@ -22,3 +22,4 @@ pyqt/build/
 pyqt/build-linux-64/
 pyqt/dist/
 pyqt/sysroot/
+bottle/views/index.tpl
