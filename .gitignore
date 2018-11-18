@@ -20,6 +20,7 @@ pyqt/python-src/
 pyqt/target/
 pyqt/build/
 pyqt/build-linux-64/
+pyqt/build-macos-64/
 pyqt/dist/
 pyqt/sysroot/
 bottle/views/index.tpl
