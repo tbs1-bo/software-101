@@ -12,12 +12,10 @@ Python-Bibliotheken.
 
 - [Pygame (Game-Engine)](pygame/README.md)
 - [Pygame Zero (Game-Engine)](pygame-zero/README.md)
-
 - [Bottle (Web-Framework)](bottle/README.md)
 - [Matplotlib](matplotlib/README.md)
 - [Datenbankzugriff](datenbank/README.md)
 - [Netzwerkprogrammierung](netzwerk/README.md)
-- [MQTT](mqtt/README.md)
 - [Type-Hints](typen/README.md)
 - [Dekoratoren](decorator/README.md)
 
