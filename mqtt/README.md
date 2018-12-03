@@ -115,3 +115,7 @@ publisher.publish(topic=TOPIC, payload=22)
 
     Message received: Ergeschoss/Wohnzimmer/Temp b'22'
 
+
+## Dashboard
+
+Ein Dahsboard für MQTT ermöglicht es, Werte im Broker zu visualisieren. [Node-RED](https://nodered.org/) ist eine IOT-Plattform, die mit dem Raspberry Pi ausgeliefert wird. Es kann um ein [Dahboard](https://flows.nodered.org/node/node-red-dashboard) erweitert werden. Hierzu wird in Node-RED im Menü "Manage Palette" > "Install" aufgerufen. In der Suchmaske kann mit `node-red-dashboard` ein solches Dashboard hinzugefügt werden.
