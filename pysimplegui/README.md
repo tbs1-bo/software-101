@@ -65,7 +65,7 @@ In den [Tutorials der Anleitung](https://pysimplegui.readthedocs.io/en/latest/co
 sind weitere Möglichkeiten beschrieben, einfach und schnell
 Anwendungen mit Fenstern zu erstellen.
 
-## Checkboxen
+## DropDown-Felder
 
 ![checkboxen](screenshot2.png)
 
