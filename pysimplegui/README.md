@@ -64,3 +64,45 @@ window.close()
 In den [Tutorials der Anleitung](https://pysimplegui.readthedocs.io/en/latest/cookbook/)
 sind weitere Möglichkeiten beschrieben, einfach und schnell
 Anwendungen mit Fenstern zu erstellen.
+
+## Checkboxen
+
+![checkboxen](screenshot2.png)
+
+Eingaben können nicht nur mit Textfeldern, sondern z.B. auch mit DropDown-Feldern
+erfolgen. Dies geschiet mit der Klasse `DropDown`. Bei der Erstellung werden die 
+verschiedenen Optionen als Liste im Konstruktor übergeben.
+
+In dem neuen Layout erhalten das DropDown- und das Textfeld über das Attribut `key` einen Namen:
+`AUSWAHL` und `TEXTFELD`.
+
+Die einzelnen GUI-Komponenten werden unter diesem Namen im Window-Objekt abgelegt und die
+Ergebnisse lassen sich unter diesem Namen im values-Dictionary abrufen.
+
+
+```python
+layout = [ [sg.DropDown(['ja', 'nein'], key='AUSWAHL')], 
+           [sg.Text('     ', key='TEXTFELD')],
+           [sg.Button('OK'), sg.Button('Abbrechen')]]
+```
+
+
+```python
+window = sg.Window('Auswahl', layout)
+```
+
+Die Komponenten des Objektes `window` lassen sich nun mit eckigen Klammern abrufen und ihr Wert mit der Methode
+`Update` aktualisieren.
+
+
+```python
+while True:
+    event, values = window.Read()
+    if event in (None, 'Abbrechen'):
+        break
+        
+    auswahl = values['AUSWAHL']
+    window['TEXTFELD'].Update(auswahl)
+
+window.close()
+```
