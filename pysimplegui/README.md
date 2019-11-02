@@ -73,9 +73,15 @@ Eingaben können nicht nur mit Textfeldern, sondern z.B. auch mit DropDown-Felde
 erfolgen. Dies geschiet mit der Klasse `DropDown`. Bei der Erstellung werden die 
 verschiedenen Optionen als Liste im Konstruktor übergeben.
 
+
+```python
+sg.DropDown(['ja', 'nein'])
+```
+
+Wir erstellen nun ein neues Layout und binden das DropDown-Feld dort ein.
+
 In dem neuen Layout erhalten das DropDown- und das Textfeld über das Attribut `key` einen Namen:
 `AUSWAHL` und `TEXTFELD`.
-
 Die einzelnen GUI-Komponenten werden unter diesem Namen im Window-Objekt abgelegt und die
 Ergebnisse lassen sich unter diesem Namen im values-Dictionary abrufen.
 
