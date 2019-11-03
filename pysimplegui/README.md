@@ -1,3 +1,4 @@
+
 # PySimpleGUI
 
 Hinter dem GUI-Framework [PySimpleGui](https://github.com/PySimpleGUI/PySimpleGUI) 
@@ -21,7 +22,7 @@ import PySimpleGUI as sg
 ```
 
 Das Layout innerhalb eines Fensters wird mit Hilfe von Listen erstellt.
-Eigentlich sind es Listen aus Listen. Jeder dieser Listen entspricht einer
+Eigentlich sind es Listen aus Listen. Jede dieser Listen entspricht einer
 Zeile in der Oberfläche.
 
 In einer einfachen Anwendung soll zuerst eine Anwendung mit
@@ -33,7 +34,7 @@ Textfeldern, einem Eingabefeld und zwei Buttons erstellt werden.
 ```python
 layout = [ [sg.Text('Ein Text')],
            [sg.Text('Gib etwas in Zeile 2 ein'), sg.InputText()],
-           [sg.Button('Ok'), sg.Button('Abbrechen')]]
+           [sg.Button('Ok'), sg.Button('Abbrechen')] ]
 ```
 
 Dieses Layout wird bei der Erstellung eines Window-Objektes genutzt. Der erste Parameter gibt den 
