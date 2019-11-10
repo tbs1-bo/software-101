@@ -4,6 +4,8 @@
 [guizero](https://lawsie.github.io/guizero) ermöglicht die 
 einfache Gestaltung von Graphischen Benutzeroberflächen.
 
+Ein [PDF-Handout](latex/guizero.pdf) dieser Seite ist ebenfalls verfügbar.
+
 ## Installation
 
 guizero kann mit pip installiert werden:
@@ -15,7 +17,7 @@ Auf der Webseite wird eine alternative Möglichkeit der Installation vorgestellt
 
 ## Beispiele
 
-Die folgende Beispielanwendungen zeigen verschiedene GUI-Elemente von tkinter
+Die folgende Beispielanwendungen zeigen verschiedene GUI-Elemente 
 in Aktion. Der Quelltext muss ausgeführt werden, um das Fenster zu sehen.
 
 

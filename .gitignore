@@ -34,3 +34,9 @@ datenbank/db.fs
 datenbank/db.fs.tmp
 datenbank/db.fs.index
 datenbank/db.fs.lock
+
+# Latex Files
+*.aux
+*.log
+*.out
+*.synctex.gz

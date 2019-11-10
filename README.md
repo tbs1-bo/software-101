@@ -6,6 +6,7 @@ Python-Bibliotheken.
 - [Grundlagen Python](python/README.md)
 - [Softwaretests](testing/README.md)
 
+- [PySimpleGUI](pysimplegui/README.md)
 - [guizero (einfaches GUI-Framework)](guizero/README.md)
 - [tkinter (GUI-Framework)](tkinter/README.md)
 - [pyqt (mächtiges GUI-Framework)](pyqt/README.md)
