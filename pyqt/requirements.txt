@@ -1,4 +1,4 @@
 pyqt5
 pyqtdeploy
 fbs
-pyinstaller==3.3.1
+pyinstaller
