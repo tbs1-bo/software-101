@@ -454,3 +454,100 @@ pytest person.py
 
 
 Die Tests waren erfolgreich, da die Exception wie erwartet aufgetreten ist.
+
+## Testabdeckung
+
+Die Anweisungs und Zweigabdeckung von Testfällen kann mit dem
+Pythonpaket [coverage.py](https://coverage.readthedocs.io/) ermittelt werden.
+
+Es wird wie gewohnt mit pip installiert: 
+* `pip3 install coverage` (Linux, MacOS)
+* `py -m pip install coverage` (Windows).
+
+Für die Testabdeckung verwenden wir wieder die Klasse Person.
+
+
+```python
+
+class Person:
+    def __init__(self, name, alter):
+        self.name = name
+        self.alter = alter
+        
+    def altern(self, jahre):
+        if jahre >= 0:
+            self.alter += jahre  
+        else:
+            raise ValueError("Keine negativen Werte erlaubt")
+        
+def test_person():
+    p = Person("Hans", 18)
+    p.altern(1)
+    assert p.alter == 19
+        
+test_person()
+```
+
+
+
+Mit dem Kommando `run` können die Tests ausgeführt werden.
+
+
+```python
+!coverage run person.py
+```
+
+Anschließend werden die Ergebnisse mit `report` angezeigt.
+
+
+```python
+!coverage report
+```
+
+    Name        Stmts   Miss  Cover
+    -------------------------------
+    person.py      13      1    92%
+
+
+Eine Zweigabdeckung wird mit der Option `--branch` ermöglicht.
+
+
+```python
+!coverage run --branch person.py
+```
+
+Nun tauchen auch Informationen zur Zweigabdeckung auf.
+
+
+```python
+!coverage report
+```
+
+    Name        Stmts   Miss Branch BrPart  Cover
+    ---------------------------------------------
+    person.py      13      1      2      1    87%
+
+
+Mit dem Kommando `html` kann eine übersichtliche Darstellung erzeugt
+werden.
+
+
+```python
+!coverage html
+```
+
+Das Ergebnis steht in dem Unterordner [htmlcov](htmlcov/index.html) zur
+Verfügung.
+
+
+```python
+!ls htmlcov
+```
+
+    coverage_html.js                   jquery.tablesorter.min.js
+    index.html                         keybd_closed.png
+    jquery.ba-throttle-debounce.min.js keybd_open.png
+    jquery.hotkeys.js                  person_py.html
+    jquery.isonscreen.js               status.json
+    jquery.min.js                      style.css
+
