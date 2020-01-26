@@ -40,3 +40,6 @@ datenbank/db.fs.lock
 *.log
 *.out
 *.synctex.gz
+
+# coverage.py
+.coverage
