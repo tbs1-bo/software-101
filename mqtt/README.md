@@ -149,3 +149,7 @@ Der folgende Flow zeigt oben einen Slider, der seinen Wert an einen MQTT-Broker 
 Eine Änderung des Schiebereglers wird nun über einen MQTT-Broker an die Zeigeranzeige weitergeleitet.
 
 ![flow in action](media/flow_action.gif)
+
+## Links
+
+* [MQTT-Spiele](http://www.jython.ch/index.php?inhalt_links=navigation.inc.php&inhalt_mitte=mqttgames/mqttGames.inc.php)
