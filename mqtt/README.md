@@ -108,7 +108,7 @@ publisher.publish(topic=TOPIC, payload=22)
 
 
 
-    <paho.mqtt.client.MQTTMessageInfo at 0x7f1172eb3318>
+    <paho.mqtt.client.MQTTMessageInfo at 0x7f56ec19a188>
 
 
 
@@ -152,4 +152,4 @@ Eine Änderung des Schiebereglers wird nun über einen MQTT-Broker an die Zeiger
 ## Links
 
 * [MQTT-Spiele](http://www.jython.ch/index.php?inhalt_links=navigation.inc.php&inhalt_mitte=mqttgames/mqttGames.inc.php)
-
+* [traze](https://traze.iteratec.de/) ist ein Spiel, das über MQTT gespielt wird.
