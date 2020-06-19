@@ -112,3 +112,7 @@ while True:
 
 window.close()
 ```
+
+## Links
+
+* [PySimpleGuiWeb](https://github.com/PySimpleGUI/PySimpleGUI/tree/master/PySimpleGUIWeb) ermöglicht das Erstellen von Web-Anwendungen mit PySimpleGui.
