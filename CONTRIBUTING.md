@@ -14,3 +14,9 @@ Um ein neues Thema hinzufügen, muss das Thema in einem entsprechenden
 Unterverzeichnis in einer ``README.md``-Datei dargestellt werden.
 In der ``README.md``-Datei im Hauptverzeichnis kann diese Datei dann
 verlinkt werden.
+
+Sollten Bibliotheken benötigt werden, so können diese über eine
+``requirements.txt``-Datei im Ordner angegeben werden.
+
+Ein Makefile hilft bei der Erstellung einer virtuellen Umgebung.
+Mit venv wird diese erzeugt.
