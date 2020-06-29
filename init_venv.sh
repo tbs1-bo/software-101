@@ -1,7 +1,7 @@
 #!/bin/bash
 
-# instal all dependencies for all topics
-
+# install all dependencies for all topics
+#
 for f in */requirements.txt
 do 
     echo $f 
