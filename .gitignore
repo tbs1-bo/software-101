@@ -13,6 +13,8 @@ tmp.py
 unittest/person.py
 unittest/person_test.py
 typen/typentest.py
+persistenz/data.csv
+persistenz/data.pickle
 pygame-zero/demo.py
 pyqt/db.sqlite
 pyqt/main.py
