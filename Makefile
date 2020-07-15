@@ -12,3 +12,7 @@ venv: */requirements.txt requirements.txt
 	venv/bin/pip install --upgrade pip
 	venv/bin/pip install -r requirements.txt
 	./init_venv.sh
+
+test: venv
+	venv/bin/python run_tests.py
+	
