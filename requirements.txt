@@ -1,3 +1,5 @@
 jupyter
 jupyter-contrib-nbextensions
+
+# module for testing jupyter notebooks with pytest.
 nbval
