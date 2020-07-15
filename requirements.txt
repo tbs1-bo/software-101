@@ -1,2 +1,3 @@
 jupyter
 jupyter-contrib-nbextensions
+nbval
