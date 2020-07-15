@@ -7,6 +7,7 @@ __pycache__/
 .vscode/
 tmp.py
 
+# Temp-Files related to different projects
 bottle/views/index.tpl
 datenbank/datenbank.db
 datenbank/db.fs
