@@ -22,3 +22,10 @@ Python-Bibliotheken.
 - [Dekoratoren](decorator/README.md)
 
 - [MQTT](mqtt/README.md)
+
+
+## Hilf mit
+
+Du kannst das Projekt mit eigenen Beiträgen ergänzen. Schau dazu bei den  
+["good first issues"](https://github.com/tbs1-bo/software-101/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22)
+nach, welche Themen noch benötigt werden.
