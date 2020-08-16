@@ -1,4 +1,3 @@
-
 # Datenbankzugriff
 
 Für die folgenden Beispiele wollen wir eine Tabelle Personen(nr, name) mit den Attributen `nr` und `Name` erstellen und jeweils wieder abfragen.
@@ -246,7 +245,12 @@ geht auf viele Details genauer ein.
 
 ## NoSQL mit TinyDB
 
-Jenseits von SQL gibt es noch verschiedene andere Ansätze, Daten in Datenbanken zu verwalten - hierbei werden keine Tabellen verwendet. Einer der Ansätze ist z.B. eine dokument-basierte Datenbank. Hier werden Daten als Dokumente wie z.B. JSON abgelegt werden. [TinyDB](https://tinydb.readthedocs.io/) ist eine solche Datenbank für Python.
+Jenseits von SQL gibt es noch verschiedene andere Ansätze, Daten in
+Datenbanken zu verwalten - hierbei werden keine Tabellen verwendet. Einer
+der Ansätze ist z.B. eine dokument-basierte Datenbank. Hier werden Daten
+als Dokumente wie z.B. JSON abgelegt. 
+[TinyDB](https://tinydb.readthedocs.io/) ist eine solche Datenbank für
+Python.
 
 ### Installation
 
