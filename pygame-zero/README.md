@@ -1,4 +1,3 @@
-
 # Pygame Zero
 
 ## Installation 
@@ -73,7 +72,9 @@ Eine gameloop einer Spiele-Engine ist nach dem folgenden Muster aufgebaut.
         update()
         draw()
 
-Und genau so funktioniert auch die Gameloop bei Pygame-Zero: Zunächst werden die Eingaben verarbeitet (`process_input`), dann die Spielwelt aktualisiert (`update`) und schließlich die veränderte Spielwelt gezeichnet (`draw`). Das passiert ca. 60 mal in der Sekunde.
+Und genau so funktioniert auch die Gameloop bei Pygame-Zero: Zunächst werden die Eingaben verarbeitet (`process_input`), dann die Spielwelt aktualisiert (`update`) und schließlich die veränderte Spielwelt gezeichnet (`draw`).  Das passiert ca. 60 mal in der Sekunde.
+
+Der Entwickler muss sich hauptsächlich um die Methoden `update` und `draw` kümmern, der Rest wird von der Engine übernommen.
 
 ## Bilder
 
