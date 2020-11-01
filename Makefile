@@ -1,3 +1,7 @@
+pygame-zero/README.md: pygame-zero/pgzero_demo.ipynb
+	./jupyternb2markdown.sh pygame-zero/pgzero_demo.ipynb
+	mv pygame-zero/pgzero_demo.md pygame-zero/README.md
+
 pysimplegui/README.md: pysimplegui/PySimpleGui.ipynb
 	./jupyternb2markdown.sh pysimplegui/PySimpleGui.ipynb
 	mv pysimplegui/PySimpleGui.md pysimplegui/README.md
