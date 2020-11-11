@@ -93,13 +93,38 @@ delayed_print_function()
 
 Das sieht irgendwie verwirrend aus. Wichtig ist, dass wir die Funktionalität von `func` selbst nicht verändert haben. Sie wurde um eine weitere Funktionalität ergänzt - mit dieser *dekoriert*.
 
+## Übung
+
+Probiere doch einmal selbst, einen Funktion zu schreiben, die eine andere Funktion dekoriert.
+Das folgende kleine Beispiel kann hierbei als Anregung dienen.
+
+Erstelle eine Funktion `double_call`, die eine Funktion f als Parameter erhält und eine neue Funktion zurückgibt, welche f zweimal hintereinander aufruft.
+
+```python
+def double_call(f):
+    ...
+
+def output():
+    print('output')
+
+print('double:')
+double_output = double_call(output)
+double_output() # -> output output
+print('quad:')
+quad_output = double_call(double_output)
+quad_output() # -> output output output output 
+````
+
+
+## Die @-Notation
+
 Im nächsten Schritt verschönern wir die Dekoration etwas. Python hat für das Einwickeln eine spezielle Notation mit einem @-Zeichen.
 
 
 ```python
 from time import sleep
 
-def delayed_fun(func):
+def delayed_func(func):
     """Return `func`, delayed by 10 seconds."""
     def wrapper():
         print("Waiting for some seconds...")
