@@ -1,3 +1,8 @@
+bottle/README.md: bottle/bottle.ipynb
+	./jupyternb2markdown.sh bottle/bottle.ipynb
+	mv bottle/bottle.md bottle/README.md
+
+
 decorator/README.md: decorator/decorator.ipynb
 	./jupyternb2markdown.sh decorator/decorator.ipynb
 	mv decorator/decorator.md decorator/README.md
