@@ -1,3 +1,4 @@
+
 # MQTT
 
 [MQTT](https://de.wikipedia.org/wiki/MQTT) ist ein u.a. von IBM entwickeltes offenes Protokoll, das auf Port 1883 und 8883 (mit Verschlüsselung) läuft und für die Übertragung von Sensordaten zwischen Maschinen entwickelt wurde. Ein [Artikel bei heise](https://heise.de/-2168152) und ein [Artikel bei dzone](https://dzone.com/articles/mqtt-the-nerve-system-of-iot) beschreiben das Protokoll ausführlich.
@@ -12,7 +13,7 @@ Für Testzwecke kann auch ein öffentlicher Broker von Eclipse verwendet werden.
 
 
 ```python
-MQTT_BROKER = "mqtt.eclipse.org"
+MQTT_BROKER = "test.mosquitto.org"
 MQTT_PORT = 1883
 ```
 
