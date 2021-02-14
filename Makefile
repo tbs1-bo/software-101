@@ -22,4 +22,4 @@ venv: */requirements.txt requirements.txt
 
 test: venv
 	venv/bin/python run_tests.py
-	
+
