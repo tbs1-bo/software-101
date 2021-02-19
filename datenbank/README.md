@@ -90,7 +90,7 @@ select_from_db()
     104 	 Claudia
 
 
-### Fremschlüssel (Foreign Keys) in SQLite
+### Fremdschlüssel (Foreign Keys) in SQLite
 
 [Foreign Keys](https://sqlite.org/foreignkeys.html) werden in SQLite standardmäßig nicht
 unterstützt und müssen pro Connection einmal über `PRAGMA foreign_keys = ON` aktiviert 
