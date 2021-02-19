@@ -90,22 +90,78 @@ select_from_db()
     104 	 Claudia
 
 
-Zum Schluss werden alle Daten wieder gelöscht.
+### Fremschlüssel (Foreign Keys) in SQLite
+
+[Foreign Keys](https://sqlite.org/foreignkeys.html) werden in SQLite standardmäßig nicht
+unterstützt und müssen pro Connection einmal über `PRAGMA foreign_keys = ON` aktiviert 
+werden.
 
 
 ```python
-def del_data():
-    conn = sqlite3.connect("datenbank.db")
-    c = conn.cursor()
-    c.execute("DELETE FROM personen")
-    
-    conn.commit()
-    conn.close()
-    
-del_data()
+conn = sqlite3.connect("datenbank.db")
+c = conn.cursor()
+c.execute("""
+    CREATE TABLE freundschaft (
+        person1 int, 
+        person2 int,
+        FOREIGN KEY (person1) REFERENCES personen(nr),
+        FOREIGN KEY (person2) REFERENCES personen(nr),
+        PRIMARY KEY (person1, person2)
+    )
+    """)
 ```
 
-Wir löschen auch die Datenbank-Datei.
+
+
+
+    <sqlite3.Cursor at 0x7f0280352490>
+
+
+
+Wir befreunden die Personen Peter (101) und Petra (102) miteinander.
+
+
+```python
+c.execute("INSERT INTO freundschaft VALUES (101,102)")
+conn.commit()
+```
+
+Leider wird nicht geprüft, ob die Personen, die befreundet werden sollen, überhaupt
+existieren. 
+
+So würden wir bei der nächsten Anweisung eine Fehlermeldung erwarten, da die Personen
+mit den IDs -1 und -2 nicht existieren.
+
+
+```python
+c.execute("INSERT INTO freundschaft VALUES (-1,-2)")
+conn.commit()
+```
+
+Wird die Unterstützung für Fremdschlüssel aktiviert, erfolgt die gewünschte Fehlermeldung.
+
+
+```python
+c.execute("PRAGMA foreign_keys = ON")
+c.execute("INSERT INTO freundschaft VALUES (-3,-4)")
+conn.commit()
+```
+
+
+    ---------------------------------------------------------------------------
+
+    OperationalError                          Traceback (most recent call last)
+
+    <ipython-input-9-d06c9f3b7f9e> in <module>
+          1 c.execute("PRAGMA foreign_keys = ON")
+    ----> 2 c.execute("INSERT INTO freundschaft VALUES (-3,-4)")
+          3 conn.commit()
+
+
+    OperationalError: foreign key mismatch - "freundschaft" referencing "personen"
+
+
+Wir löschen zum Schluss die Datenbank-Datei.
 
 
 ```python
