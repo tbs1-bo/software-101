@@ -283,7 +283,7 @@ Nun ist das Formular unter http://localhost:8081/formular erreichbar.
 
 Damit der HTML-Quelltext nicht mit dem Python-Quelltext verschmischt wird, trennt man beide. Dadurch können Änderungen am Design durchgeführt werden, ohne den Quelltext dafür ändern zu müssen.
 
-[Templates](http://bottlepy.org/docs/dev/tutorial.html#templates) werden im Ordner `views` abgelegt. Dort legen wir folgende einfache HTML-Datei `index.tpl` ab. Sie enthält den Platzhalter `{{mein_text}}`, der noch ersetzt werden muss. (Die erste Zeile mit writefile ist nicht Teil der Datei.)
+[Templates](https://bottlepy.org/docs/dev/tutorial.html#templates) werden im Ordner `views` abgelegt. Dort legen wir folgende einfache HTML-Datei `index.tpl` ab. Sie enthält den Platzhalter `{{mein_text}}`, der noch ersetzt werden muss.
 
 
 ```python
