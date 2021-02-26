@@ -29,23 +29,20 @@ Zunächst wird eine Verbindung erstellt und aus dieser ein `Cursor` generiert, m
 
 
 ```python
-def insert_into_db():
-    conn = sqlite3.connect("datenbank.db")
-    c = conn.cursor()
-    c.execute("""CREATE TABLE IF NOT EXISTS 
-        personen(nr int, name text)""")
+conn = sqlite3.connect("datenbank.db")
+c = conn.cursor()
+c.execute("""CREATE TABLE IF NOT EXISTS 
+    personen(nr int, name text)""")
 
-    for nr, name in TESTDATEN:
-        # use keyword paramters :nr, :name to avoid sql injection
-        print("Füge Daten hinzu:", nr, name)
-        c.execute(
-            "INSERT INTO personen (nr, name) VALUES(:nr,:name)", 
-            {'nr':nr, 'name':name})
+for nr, name in TESTDATEN:
+    # use keyword paramters :nr, :name to avoid sql injection
+    print("Füge Daten hinzu:", nr, name)
+    c.execute(
+        "INSERT INTO personen (nr, name) VALUES(:nr,:name)", 
+        {'nr':nr, 'name':name})
 
-    conn.commit()
-    conn.close()
-
-insert_into_db()
+conn.commit()
+conn.close()
 ```
 
     Füge Daten hinzu: 101 Peter
