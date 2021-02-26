@@ -39,8 +39,8 @@ def insert_into_db():
         # use ? to avoid sql injection
         print("Füge Daten hinzu:", nr, name)
         c.execute(
-            """INSERT INTO personen (nr, name) VALUES(?,?)""", 
-            (nr, name))
+            """INSERT INTO personen (nr, name) VALUES(:nr,:name)""", 
+            {'nr':nr, 'name':name})
 
     conn.commit()
     conn.close()
