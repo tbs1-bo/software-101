@@ -39,7 +39,7 @@ def insert_into_db():
         # use keyword paramters :nr, :name to avoid sql injection
         print("Füge Daten hinzu:", nr, name)
         c.execute(
-            """INSERT INTO personen (nr, name) VALUES(:nr,:name)""", 
+            "INSERT INTO personen (nr, name) VALUES(:nr,:name)", 
             {'nr':nr, 'name':name})
 
     conn.commit()
@@ -68,19 +68,15 @@ Die Daten können wieder aus der Datei gelesen werden.
 
 
 ```python
-def select_from_db():
-    conn = sqlite3.connect("datenbank.db")
-    c = conn.cursor()
-    rows = c.execute("SELECT nr, name FROM personen")
+conn = sqlite3.connect("datenbank.db")
+c = conn.cursor()
+rows = c.execute("SELECT nr, name FROM personen")
 
-    print("Nr.\t Name")
-    for i, name in rows:
-        print(i, "\t", name)
+print("Nr.\t Name")
+for i, name in rows:
+    print(i, "\t", name)
 
-    conn.close()
-
-select_from_db()
-
+conn.close()
 ```
 
     Nr.	 Name
