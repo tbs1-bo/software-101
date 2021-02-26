@@ -1,4 +1,4 @@
-datenabnk/README.md: datenbank/datenbank.ipynb
+datenbank/README.md: datenbank/datenbank.ipynb
 	./jupyternb2markdown.sh datenbank/datenbank.ipynb datenbank/README.md
 
 bottle/README.md: bottle/bottle.ipynb
