@@ -364,7 +364,7 @@ cat db.json
 
 ### Daten hinzufügen
 
-Noch ist die Datenbank leer. Füllen wir sie also mir ein paar Daten. Die Daten können einfache Dictionaries seind.
+Noch ist die Datenbank leer. Füllen wir sie also mir ein paar Daten. Die Daten können einfache Dictionaries sein.
 
 
 ```python
@@ -429,7 +429,7 @@ for item in db:
     {'type': 'peach', 'count': 3} Typ: peach
 
 
-Bis jetzt haben wir noch nicht viel gewonnen gegenüber einer direkten Speicherung eines Dictionaries. Dokumentenbasierte Datenbanken wie TinyDB bieten jedoch die Möglichkeit komplexere Anfrage zu stellen.
+Bis jetzt haben wir noch nicht viel gewonnen gegenüber einer direkten Speicherung eines Dictionaries. Dokumentenbasierte Datenbanken wie TinyDB bieten jedoch die Möglichkeit, komplexere Anfrage zu stellen.
 
 Hierfür wird ein Query-Objekt erzeugt.
 
@@ -468,8 +468,8 @@ Mit `get` greifen wir auf das erste Ergebnis einer Suche zu. Jeder Eintrag in de
 
 
 ```python
-apple = db.get(query.type == "peach")
-apple.doc_id
+peach = db.get(query.type == "peach")
+peach.doc_id
 ```
 
 
