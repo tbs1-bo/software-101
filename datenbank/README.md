@@ -86,6 +86,32 @@ conn.close()
     104 	 Claudia
 
 
+Auch über das `sqlite3`-Kommandozeilentool lassen sich die Daten anzeigen.
+
+
+```python
+sqlite3 datenbank.db "SELECT * FROM personen"
+```
+
+    101|Peter
+    102|Petra
+    103|Hans
+    104|Claudia
+
+
+
+```python
+sqlite3 --column --header datenbank.db "SELECT * FROM personen"
+```
+
+    nr   name   
+    ---  -------
+    101  Peter  
+    102  Petra  
+    103  Hans   
+    104  Claudia
+
+
 ### Fremdschlüssel (Foreign Keys) in SQLite
 
 [Foreign Keys](https://sqlite.org/foreignkeys.html) werden in SQLite standardmäßig nicht
