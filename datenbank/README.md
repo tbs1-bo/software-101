@@ -115,6 +115,8 @@ sqlite3 datenbank.db "SELECT * FROM personen"
     104|Claudia
 
 
+Die Standardausgabe kann auch hübscher dargestellt werden.
+
 
 ```python
 sqlite3 --column --header datenbank.db "SELECT * FROM personen"
