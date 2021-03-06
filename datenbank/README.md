@@ -83,6 +83,25 @@ conn.close()
     104 	 Claudia
 
 
+Ändert man die `row_factory` einer sqlite-Verbindung, so kann man auch über den
+Namen auf Einträge zugreifen.
+
+
+```python
+conn = sqlite3.connect("datenbank.db")
+conn.row_factory = sqlite3.Row
+c = conn.cursor()
+rows = c.execute("SELECT nr, name FROM personen")
+for row in rows:
+    print(row['nr'], row['name'])
+```
+
+    101 Peter
+    102 Petra
+    103 Hans
+    104 Claudia
+
+
 Auch über das `sqlite3`-Kommandozeilentool lassen sich die Daten anzeigen.
 
 
