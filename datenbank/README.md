@@ -119,15 +119,17 @@ Die Standardausgabe kann auch hübscher dargestellt werden.
 
 
 ```python
-sqlite3 --column --header datenbank.db "SELECT * FROM personen"
+sqlite3 --box datenbank.db "SELECT * FROM personen"
 ```
 
-    nr   name   
-    ---  -------
-    101  Peter  
-    102  Petra  
-    103  Hans   
-    104  Claudia
+    ┌─────┬─────────┐
+    │ nr  │  name   │
+    ├─────┼─────────┤
+    │ 101 │ Peter   │
+    │ 102 │ Petra   │
+    │ 103 │ Hans    │
+    │ 104 │ Claudia │
+    └─────┴─────────┘
 
 
 ### Fremdschlüssel (Foreign Keys) in SQLite
