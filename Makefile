@@ -5,7 +5,7 @@ bottle/README.md: bottle/bottle.ipynb
 	./jupyternb2markdown.sh bottle/bottle.ipynb bottle/README.md
 
 decorator/README.md: decorator/decorator.ipynb
-	./jupyternb2markdown.sh decorator/decorator.ipynb decorator/decorator.md decorator/README.md
+	./jupyternb2markdown.sh decorator/decorator.ipynb decorator/README.md
 
 pygame-zero/README.md: pygame-zero/pgzero_demo.ipynb
 	./jupyternb2markdown.sh pygame-zero/pgzero_demo.ipynb pygame-zero/pgzero_demo.md pygame-zero/README.md
