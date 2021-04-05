@@ -1,4 +1,3 @@
-
 # Decorator unter Python
 
 Dekoratoren sind ein fortgeschrittenes Konzept in Python. Sie kommen an vielen unterschiedlichen Stellen zum Einsatz.
@@ -67,7 +66,7 @@ Nun schreiben wir eine Funktion, die eine weitere Funktion als Parameter besitzt
 from time import sleep
 
 def delayed_func(func):
-    """Return a wrapper which delays `func` by 10 seconds."""
+    """Return a wrapper which delays `func` by some seconds."""
     def wrapper():
         print("Waiting for some seconds...")
         sleep(3)
