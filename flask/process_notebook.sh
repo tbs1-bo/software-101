@@ -10,5 +10,3 @@ echo "converting: $IN -> $OUT"
 echo 'removing magic-cell markers: %% and !'
 grep -v '%%' $IN | sed -e 's/"! /"/' > $OUT
 
-echo "showing changes"
-diff -U 1 $IN $OUT
