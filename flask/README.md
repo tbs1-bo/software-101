@@ -18,7 +18,7 @@ pip3 install flask
 
 
 ```python
-! flask --version
+flask --version
 ```
 
     Python 3.9.5
@@ -28,7 +28,7 @@ pip3 install flask
 
 
 ```python
-! flask
+flask
 ```
 
     Usage: flask [OPTIONS] COMMAND [ARGS]...
@@ -56,7 +56,7 @@ pip3 install flask
 
 
 ```python
-! flask run --help
+flask run --help
 ```
 
     Usage: flask run [OPTIONS]
@@ -104,7 +104,6 @@ pip3 install flask
 
 
 ```python
-%%writefile app.py
 
 from flask import Flask
 
@@ -154,7 +153,6 @@ http://localhost:5000/
 
 
 ```python
-%%writefile app.py
 
 from flask import Flask
 
@@ -188,15 +186,15 @@ def index():
 
 
 ```python
-! mkdir templates
+mkdir templates
 ```
 
 
 ```python
-! tree templates
+tree templates
 ```
 
-    [01;34mtemplates[00m
+    templates
     └── index.html
     
     0 directories, 1 file
@@ -204,7 +202,6 @@ def index():
 
 
 ```python
-%%writefile templates/index.html
 
 <!DOCTYPE html>
 <html>
@@ -229,7 +226,6 @@ def index():
 
 
 ```python
-%%writefile app.py
 
 from flask import Flask, render_template  #
 
@@ -253,7 +249,6 @@ def index():
 
 
 ```python
-%%writefile templates/index.html
 
 <!DOCTYPE html>
 <html>
@@ -272,7 +267,6 @@ def index():
 
 
 ```python
-%%writefile app.py
 
 from flask import Flask, render_template
 
@@ -295,7 +289,6 @@ def index():
 
 
 ```python
-%%writefile templates/index.html
 
 <!DOCTYPE html>
 <html>
@@ -333,7 +326,6 @@ def index():
 
 
 ```python
-%%writefile templates/index.html
 
 <!DOCTYPE html>
 <html>
@@ -376,7 +368,6 @@ def index():
 
 
 ```python
-%%writefile app.py
 
 from flask import Flask, render_template, request, redirect #
 
@@ -412,7 +403,6 @@ pip install flask-sqlalchemy
 
 
 ```python
-%%writefile app.py
 
 from flask import Flask, render_template, request, redirect
 from flask_sqlalchemy import SQLAlchemy, Model                #
@@ -444,7 +434,6 @@ db.create_all()                                   #
 
 
 ```python
-%%writefile templates/index.html
 
 <!DOCTYPE html>
 <html>
@@ -483,7 +472,6 @@ db.create_all()                                   #
 
 
 ```python
-%%writefile app.py
 
 from flask import Flask, render_template, request, redirect
 from flask_sqlalchemy import SQLAlchemy, Model
@@ -522,7 +510,6 @@ db.create_all()
 
 
 ```python
-%%writefile templates/index.html
 
 <!DOCTYPE html>
 <html>
@@ -579,16 +566,16 @@ CSS herunterladen https://cdn.jsdelivr.net/npm/water.css@2/out/water.css
 
 
 ```python
-! mkdir static
-! wget -O static/water.css https://cdn.jsdelivr.net/npm/water.css@2/out/water.css
+mkdir static
+wget -O static/water.css https://cdn.jsdelivr.net/npm/water.css@2/out/water.css
 ```
 
 
 ```python
-! tree static
+tree static
 ```
 
-    [01;34mstatic[00m
+    static
     └── water.css
     
     0 directories, 1 file
@@ -596,7 +583,6 @@ CSS herunterladen https://cdn.jsdelivr.net/npm/water.css@2/out/water.css
 
 
 ```python
-%%writefile templates/index.html
 
 <!DOCTYPE html>
 <html>
@@ -636,10 +622,10 @@ CSS herunterladen https://cdn.jsdelivr.net/npm/water.css@2/out/water.css
 
 
 ```python
-! tree templates
+tree templates
 ```
 
-    [01;34mtemplates[00m
+    templates
     ├── index.html
     └── update.html
     
@@ -648,7 +634,6 @@ CSS herunterladen https://cdn.jsdelivr.net/npm/water.css@2/out/water.css
 
 
 ```python
-%%writefile templates/index.html
 
 <!DOCTYPE html>
 <html>
@@ -696,7 +681,6 @@ CSS herunterladen https://cdn.jsdelivr.net/npm/water.css@2/out/water.css
 
 
 ```python
-%%writefile templates/update.html
 
 <!DOCTYPE html>
 <html>
@@ -725,7 +709,6 @@ CSS herunterladen https://cdn.jsdelivr.net/npm/water.css@2/out/water.css
 
 
 ```python
-%%writefile app.py
 
 from flask import Flask, render_template, request, redirect
 from flask_sqlalchemy import SQLAlchemy, Model
