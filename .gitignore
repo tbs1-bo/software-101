@@ -51,3 +51,6 @@ flask/index.html
 flask/tasks.db
 flask/static/
 flask/templates/
+# link to audio files stored at
+# https://archive.org/details/flask_intro
+flask/media
