@@ -1,3 +1,8 @@
+flask/flask_final.html: flask/flask.ipynb
+	cd flask ; ./process_notebook.sh
+	jupyter nbconvert --to html --stdout flask/flask_final.ipynb > flask/flask_final.html
+	rm flask/flask_final.ipynb
+
 datenbank/README.md: datenbank/datenbank.ipynb
 	./jupyternb2markdown.sh datenbank/datenbank.ipynb datenbank/README.md
 
