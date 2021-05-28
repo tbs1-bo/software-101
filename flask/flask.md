@@ -1,42 +1,36 @@
 ## Installation
 
-
-```python
-# testing audio
-from IPython.display import Audio
-Audio(url="http://www.w3schools.com/html/horse.ogg")
-```
-
-
-
-
-
-<audio  controls="controls" >
-    <source src="http://www.w3schools.com/html/horse.ogg" type="audio/ogg" />
-    Your browser does not support the audio element.
-</audio>
-
-
+Unten siehst du Steuerelemente, um eine Erläuterung abzuspielen. Setze Kopfhörer auf und höre dir die Erläuterungen zu den jeweiligen Abschnitten an.
 
 
 <audio controls>
-  <source src="https://www.w3schools.com/html/horse.ogg" type="audio/ogg">
-  <source src="http://www.w3schools.com/html/horse.mp3" type="audio/mpeg">
-Your browser does not support the audio element.
+  <source src="https://archive.org/download/flask_intro/installation.mp3" type="audio/mpeg">
+  Your browser does not support the audio element.
 </audio> 
+
 
 
 ```python
 pip3 install flask
 ```
 
+[flask-Webseite](https://flask.palletsprojects.com)
+
+
+```python
+! flask --version
+```
+
+    Python 3.9.5
+    Flask 1.1.2
+    Werkzeug 1.0.1
+
+
 
 ```python
 ! flask
 ```
 
-    /home/pintman/.local/lib/python3.9/site-packages/flask_sqlalchemy/__init__.py:872: FSADeprecationWarning: SQLALCHEMY_TRACK_MODIFICATIONS adds significant overhead and will be disabled by default in the future.  Set it to True or False to suppress this warning.
-      warnings.warn(FSADeprecationWarning(
     Usage: flask [OPTIONS] COMMAND [ARGS]...
     
       A general utility script for Flask applications.
@@ -102,6 +96,13 @@ pip3 install flask
 
 
 
+<audio controls>
+  <source src="https://archive.org/download/flask_intro/einfache_app.mp3" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
+
+
+
 ```python
 %%writefile app.py
 
@@ -114,15 +115,23 @@ def index():
     return 'Meine TODO-App'
 ```
 
-    Overwriting app.py
+Probiere es nun selbst aus: Installiere flask, erstelle die Dateien und starte den 
+Web-Server. Lasse ihn die ganze Zeit im Hintergrund laufen und beobachte, welche 
+Ausgaben er produziert.
+
+## Web-Server starten
 
 
-## Starten
+<audio controls>
+  <source src="https://archive.org/download/flask_intro/flask_starten.mp3" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
+
 
 MacOS/Linux:
 
-    export FLASK_ENV=development
     export FLASK_APP=app.py
+    export FLASK_ENV=development
     flask run
     
 Windows:
@@ -133,6 +142,15 @@ Windows:
     
 
 http://localhost:5000/
+
+## HTML-Ausgabe
+
+
+<audio controls>
+  <source src="https://archive.org/download/flask_intro/return_html.mp3" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio> 
+
 
 
 ```python
@@ -157,12 +175,16 @@ def index():
     '''
 ```
 
-    Overwriting app.py
-
-
 Änderungen zur vorherigen Version sind im Folgenden mit `#` markiert.
 
 ## Templates
+
+
+<audio controls>
+  <source src="https://archive.org/download/flask_intro/render_template.mp3" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio> 
+
 
 
 ```python
@@ -171,11 +193,22 @@ def index():
 
 
 ```python
+! tree templates
+```
+
+    [01;34mtemplates[00m
+    └── index.html
+    
+    0 directories, 1 file
+
+
+
+```python
 %%writefile templates/index.html
 
 <!DOCTYPE html>
 <html>
-  <head>
+<head>
   <title>Todo App</title>
 </head>
 <body>
@@ -184,8 +217,15 @@ def index():
 </html>
 ```
 
-    Overwriting templates/index.html
-
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Todo App</title>
+</head>
+<body>
+  <h1>Todo App</h1>
+</body>
+</html>
 
 
 ```python
@@ -200,10 +240,16 @@ def index():
     return render_template('index.html')  #
 ```
 
-    Overwriting app.py
+[Rendering Template](https://flask.palletsprojects.com/en/2.0.x/quickstart/#rendering-templates)
+
+## Templates mit Parametern
 
 
-## Templates Mit Parametern
+<audio controls>
+  <source src="https://archive.org/download/flask_intro/templates_param.mp3" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio> 
+
 
 
 ```python
@@ -211,7 +257,7 @@ def index():
 
 <!DOCTYPE html>
 <html>
-  <head>
+<head>
   <title>Todo App</title>
 </head>
 <body>
@@ -224,9 +270,6 @@ def index():
 </html>
 ```
 
-    Overwriting templates/index.html
-
-
 
 ```python
 %%writefile app.py
@@ -234,17 +277,21 @@ def index():
 from flask import Flask, render_template
 
 app = Flask(__name__)
-my_tasks = ['Learn Flask', 'Make App']                   #
+my_tasks = ['Learn Flask', 'Make App']                    #
 
 @app.route('/')
 def index():
-    return render_template('index.html',tasks=my_tasks)  #
+    return render_template('index.html', tasks=my_tasks)  #
 ```
 
-    Overwriting app.py
-
-
 ## Schleifen in Templates
+
+
+<audio controls>
+  <source src="https://archive.org/download/flask_intro/template_loop.mp3" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio> 
+
 
 
 ```python
@@ -252,27 +299,37 @@ def index():
 
 <!DOCTYPE html>
 <html>
-  <head>
+<head>
   <title>Todo App</title>
 </head>
 <body>
     <h1>Todo App</h1>
     <ul>
 
-    <!-- # for-Schleifen in Templates -->
-    {% for task in tasks %}
-        <li> {{ task }} </li>
-    {% endfor%}
+        <!-- # for-Schleifen in Templates -->
+        {% for task in tasks %}
+            <li> {{ task }} </li>
+        {% endfor %}
 
     </ul>
 </body>
 </html>
 ```
 
-    Overwriting templates/index.html
-
+<h1>Todo App</h1>
+<ul>
+    <li> Learn Flask </li>
+    <li> Make App </li>
+</ul>
 
 ## Formulare
+
+
+<audio controls>
+  <source src="https://archive.org/download/flask_intro/html_form.mp3" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio> 
+
 
 
 ```python
@@ -280,15 +337,15 @@ def index():
 
 <!DOCTYPE html>
 <html>
-  <head>
+<head>
   <title>Todo App</title>
 </head>
 <body>
     <h1>Todo App</h1>
     <ul>
-    {% for task in tasks %}
-    <li> {{ task }} </li>
-    {% endfor %}
+        {% for task in tasks %}
+            <li> {{ task }} </li>
+        {% endfor %}
     </ul>
     
     <!-- # Formular -->
@@ -303,7 +360,18 @@ def index():
 </html>
 ```
 
-    Overwriting templates/index.html
+<h2>Task hinzufügen</h2>
+<form action='' method='post'>
+    <label for='content'>Inhalt:</label>
+    <input type='text' name='content' placeholder="Neuer Task">
+    <input type='submit' value='Add'>
+</form>
+
+
+<audio controls>
+  <source src="https://archive.org/download/flask_intro/http_post_processing.mp3" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio> 
 
 
 
@@ -323,13 +391,19 @@ def index():
         my_tasks.append(new_task)           #
         return redirect('/')                #
     else:
-        return render_template('index.html',tasks=my_tasks)
+        return render_template('index.html', tasks=my_tasks)
 ```
 
-    Overwriting app.py
-
+[Accessing Request Data](https://flask.palletsprojects.com/en/2.0.x/quickstart/#accessing-request-data)
 
 ## Daten in einer Datenbank speichern
+
+
+<audio controls>
+  <source src="https://archive.org/download/flask_intro/sql_alchemy.mp3" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio> 
+
 
 
 ```python
@@ -358,7 +432,7 @@ def index():
         return redirect('/')
     else:
         my_tasks = Task.query.all() #
-        return render_template('index.html',tasks=my_tasks)
+        return render_template('index.html', tasks=my_tasks)
     
 
 class Task(db.Model):                             #
@@ -368,16 +442,13 @@ class Task(db.Model):                             #
 db.create_all()                                   #
 ```
 
-    Overwriting app.py
-
-
 
 ```python
 %%writefile templates/index.html
 
 <!DOCTYPE html>
 <html>
-  <head>
+<head>
   <title>Todo App</title>
 </head>
 <body>
@@ -399,10 +470,16 @@ db.create_all()                                   #
 </html>
 ```
 
-    Overwriting templates/index.html
-
+[Flask-SQL-Alchemy](https://flask-sqlalchemy.palletsprojects.com/en/2.x/quickstart/)
 
 ## Daten löschen
+
+
+<audio controls>
+  <source src="https://archive.org/download/flask_intro/delete.mp3" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio> 
+
 
 
 ```python
@@ -426,7 +503,7 @@ def index():
         return redirect('/')
     else:
         my_tasks = Task.query.all()
-        return render_template('index.html',tasks=my_tasks)
+        return render_template('index.html', tasks=my_tasks)
 
 @app.route('/delete/<int:id>')  #
 def delete(id):                 #
@@ -443,16 +520,13 @@ class Task(db.Model):
 db.create_all()
 ```
 
-    Overwriting app.py
-
-
 
 ```python
 %%writefile templates/index.html
 
 <!DOCTYPE html>
 <html>
-  <head>
+<head>
   <title>Todo App</title>
 </head>
 <body>
@@ -478,14 +552,30 @@ db.create_all()
 </html>
 ```
 
-    Overwriting templates/index.html
+<h1>Todo App</h1>
+<ul>
+<li> Learn Flask 
+    <a href='/delete/1'>DELETE</a> 
+</li>
+<li> Make App 
+    <a href='/delete/2'>DELETE</a> 
+</li>
 
+----
+- [URL Building](https://flask.palletsprojects.com/en/2.0.x/quickstart/#url-building)
 
 ## Schickes Layout
 
-https://watercss.kognise.dev/
+[Water CSS](https://watercss.kognise.dev/)
 
 CSS herunterladen https://cdn.jsdelivr.net/npm/water.css@2/out/water.css
+
+
+<audio controls>
+  <source src="https://archive.org/download/flask_intro/stylesheet.mp3" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio> 
+
 
 
 ```python
@@ -495,10 +585,13 @@ CSS herunterladen https://cdn.jsdelivr.net/npm/water.css@2/out/water.css
 
 
 ```python
-! ls static
+! tree static
 ```
 
-    water.css
+    [01;34mstatic[00m
+    └── water.css
+    
+    0 directories, 1 file
 
 
 
@@ -507,12 +600,12 @@ CSS herunterladen https://cdn.jsdelivr.net/npm/water.css@2/out/water.css
 
 <!DOCTYPE html>
 <html>
-  <head>
+<head>
     <!-- # Stylesheet -->
     <link rel="stylesheet" href="{{url_for('static', filename='water.css')}}">   
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Todo App</title>
+    <title>Todo App</title>
 </head>
 <body>
     <h1>Todo App</h1>
@@ -532,10 +625,26 @@ CSS herunterladen https://cdn.jsdelivr.net/npm/water.css@2/out/water.css
 </html>
 ```
 
-    Overwriting templates/index.html
-
-
 ## Daten ändern
+
+
+<audio controls>
+  <source src="https://archive.org/download/flask_intro/update.mp3" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio> 
+
+
+
+```python
+! tree templates
+```
+
+    [01;34mtemplates[00m
+    ├── index.html
+    └── update.html
+    
+    0 directories, 2 files
+
 
 
 ```python
@@ -543,7 +652,7 @@ CSS herunterladen https://cdn.jsdelivr.net/npm/water.css@2/out/water.css
 
 <!DOCTYPE html>
 <html>
-  <head>
+<head>
     <link rel="stylesheet" href="{{url_for('static', filename='water.css')}}">   
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Todo App</title>
@@ -574,60 +683,16 @@ CSS herunterladen https://cdn.jsdelivr.net/npm/water.css@2/out/water.css
 </html>
 ```
 
-    Overwriting templates/index.html
-
-
-
-```python
-%%writefile app.py
-
-from flask import Flask, render_template, request, redirect
-from flask_sqlalchemy import SQLAlchemy, Model
-
-app = Flask(__name__)
-
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///tasks.db'
-db = SQLAlchemy(app)
-
-@app.route('/', methods=['GET', 'POST'])
-def index():
-    if request.method == 'POST':
-        new_task = request.form['content']
-        t = Task(content=new_task)
-        db.session.add(t) 
-        db.session.commit() 
-        return redirect('/')
-    else:
-        my_tasks = Task.query.all()
-        return render_template('index.html',tasks=my_tasks)
-
-@app.route('/delete/<int:id>')
-def delete(id):                 
-    t = Task.query.get(id)      
-    db.session.delete(t)        
-    db.session.commit()         
-    return redirect('/')        
-    
-@app.route('/update/<int:id>', methods=['GET', 'POST'])  #
-def update(id):                                          #
-    t = Task.query.get(id)
-    if request.method == 'POST':
-        t.content = request.form['content']
-        db.session.commit()
-        return redirect('/')
-    else:
-        return render_template('update.html', task=t)
-    
-# models
-class Task(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    content = db.Column(db.String(128))
-    
-db.create_all()
-```
-
-    Overwriting app.py
-
+<h1>Todo App</h1>
+<ul>
+<li> Learn Flask 
+    <a href='/delete/1'>DELETE</a> 
+    <a href='/update/1'>UPDATE</a> 
+</li>
+<li> Make App 
+    <a href='/delete/2'>DELETE</a> 
+    <a href='/update/2'>UPDATE</a> 
+</li>
 
 
 ```python
@@ -651,8 +716,65 @@ db.create_all()
 </html>
 ```
 
-    Overwriting templates/update.html
+<h2>Task Ändern</h2>
+<form action='/update/1' method='post'>
+    <label for='content'>Inhalt:</label>
+    <input type='text' name='content' value="Learn Flask">
+    <input type='submit' value='Update'>
+</form>
 
+
+```python
+%%writefile app.py
+
+from flask import Flask, render_template, request, redirect
+from flask_sqlalchemy import SQLAlchemy, Model
+
+app = Flask(__name__)
+
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///tasks.db'
+db = SQLAlchemy(app)
+
+@app.route('/', methods=['GET', 'POST'])
+def index():
+    if request.method == 'POST':
+        new_task = request.form['content']
+        t = Task(content=new_task)
+        db.session.add(t) 
+        db.session.commit() 
+        return redirect('/')
+    else:
+        my_tasks = Task.query.all()
+        return render_template('index.html', tasks=my_tasks)
+
+@app.route('/delete/<int:id>')
+def delete(id):                 
+    t = Task.query.get(id)      
+    db.session.delete(t)        
+    db.session.commit()         
+    return redirect('/')        
+    
+@app.route('/update/<int:id>', methods=['GET', 'POST'])  #
+def update(id):                                          #
+    t = Task.query.get(id)                               #
+    if request.method == 'POST':                         #
+        t.content = request.form['content']              #
+        db.session.commit()                              # 
+        return redirect('/')                             #
+    else:                                                #
+        return render_template('update.html', task=t)    #
+
+# models
+class Task(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    content = db.Column(db.String(128))
+    
+db.create_all()
+```
+
+## Quiz
+
+- [Quiz](https://forms.office.com/Pages/ResponsePage.aspx?id=vXaNqv_gIkSSC8VeqJUdRS_J0kTXn4pIneR-vyqBhblUQkgyVjFMRE1GMjlKNDAxNTAwSDVaQjAzTS4u) - Office-Zugang erforderlich
 
 ## Weitere Infos
 
