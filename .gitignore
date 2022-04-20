@@ -54,3 +54,6 @@ flask/templates/
 # link to audio files stored at
 # https://archive.org/details/flask_intro
 flask/media
+
+# poetry tmp file
+poetry.lock
