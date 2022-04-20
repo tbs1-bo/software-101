@@ -25,9 +25,9 @@ jobs:
       run: |
         poetry install --no-dev
 
-    #- name: create static website
-    #  run: |
-    #    poetry run make publish
+    - name: create pages
+      run: |
+        ./make_pages.sh
 
     - name: Commit result
       run: |
