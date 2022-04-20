@@ -27,7 +27,7 @@ jobs:
 
     - name: create pages
       run: |
-        ./make_pages.sh
+        poetry run ./make_pages.sh
 
     - name: Commit result
       run: |
