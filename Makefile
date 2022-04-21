@@ -20,14 +20,3 @@ pysimplegui/README.md: pysimplegui/PySimpleGui.ipynb
 
 mqtt/README.md: mqtt/mqtt.ipynb
 	./jupyternb2markdown.sh mqtt/mqtt.ipynb mqtt/mqtt.md mqtt/README.md
-
-venv: */requirements.txt requirements.txt
-	python3 -m venv venv
-	touch venv
-	venv/bin/pip install --upgrade pip
-	venv/bin/pip install -r requirements.txt
-	./init_venv.sh
-
-test: venv
-	venv/bin/python run_tests.py
-

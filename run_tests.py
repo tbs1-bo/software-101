@@ -21,13 +21,13 @@ IGNORE = [
 ]
 
 
-for d in os.listdir():    
+for d in os.listdir():
     if not os.path.isdir(d) or d.startswith('.') or d in IGNORE:
         print('  ignoring', d)
         continue
 
     print('testing', d)
-    r = subprocess.run(['venv/bin/pytest', '--nbval', d])
+    r = subprocess.run(['pytest', '--nbval', d])
     if r.returncode != 0:
         print('ERROR')
         exit(1)
