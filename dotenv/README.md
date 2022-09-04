@@ -1,16 +1,23 @@
 # python dotenv
 
 Es macht einen Unterschied, ob eine Anwendung auf dem lokalen Rechner des Entwicklers
-oder in einem Produktivsystem auf einem Server läuft. Die Frage, wo Konfigurationswerte
-abgelegt werden ...
+oder in einem Produktivsystem auf einem Server läuft. Unter Umständen gibt es 
+unterschiedliche Werte für den Datenbank-Server oder Benutzerzugänge inklusive
+Username und Passwort unterscheiden sich.
 
-https://12factor.net/config
+Es hat sich das Schema etabliert, Konfigurationswerte in Umgebungsvariablen abzulegen,
+die von der Anwendung ausgelesen werden können - vgl dazu auch die Anforderungen an
+eine [12factor](https://12factor.net/config)-Anwendung.
 
-https://pypi.org/project/python-dotenv/
+Für Python gibt es eine Unterstützung durch 
+[python-dotenv](https://pypi.org/project/python-dotenv/).
+
+Konfigurationen werden in `.env`-Dateien geschrieben, die nicht in der 
+Versionsverwaltung abgelegt werden.
 
 
 ```python
-!cat .env
+cat .env
 ```
 
     DOMAIN=example.org
@@ -41,15 +48,7 @@ Diese Werte können im Programm ausgelesen und genutzt werden.
 import os
 
 DOMAIN = os.environ['DOMAIN']
-```
-
-
-```python
 ADMIN_EMAIL = os.environ['ADMIN_EMAIL']
-```
-
-
-```python
 ROOT_URL = os.environ['ROOT_URL']
 ```
 
@@ -64,8 +63,3 @@ print(ROOT_URL)
     admin@example.org
     example.org/app
 
-
-
-```python
-
-```
