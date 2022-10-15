@@ -27,6 +27,9 @@ import sqlite3
 Nach dem Import des `sqlite3`-Moduls können nun Daten hinzugefügt und anschließend wieder ausgelesen werden.
 Zunächst wird eine Verbindung erstellt und aus dieser ein `Cursor` generiert, mit dem auf die Datenbank zugegriffen werden kann.
 
+Das SQL-Statement enthält ``?``. Diese werden durch die Werte in der Liste, die als zweites Argument übergeben
+werden, ersetzt. Hierdurch werden Sicherheitslücken wie SQL-Injection vermieden.
+
 
 ```python
 conn = sqlite3.connect("datenbank.db")
@@ -35,11 +38,11 @@ c.execute("""CREATE TABLE IF NOT EXISTS
     personen(nr int, name text)""")
 
 for nr, name in TESTDATEN:
-    # use keyword paramters :nr, :name to avoid sql injection
+    # use paramters ? to avoid sql injection
     print("Füge Daten hinzu:", nr, name)
     c.execute(
-        "INSERT INTO personen (nr, name) VALUES(:nr,:name)", 
-        {'nr':nr, 'name':name})
+        "INSERT INTO personen (nr, name) VALUES(?,?)", 
+        (nr, name))
 
 conn.commit()
 conn.close()
@@ -50,6 +53,22 @@ conn.close()
     Füge Daten hinzu: 103 Hans
     Füge Daten hinzu: 104 Claudia
 
+
+Manchmal ist es übersichtlicher, wenn man den Parametern in der SQL-Anweisung einen Namen gibt.
+Dann werden statt ``?`` die Parameter mit einem Namen wie ``:mein_parameter`` referenziert.
+
+
+```python
+conn = sqlite3.connect("datenbank.db")
+c = conn.cursor()
+
+c.execute(
+  "INSERT INTO personen (nr, name) VALUES(:nr,:name)", 
+  {'nr':105, 'name':'Hannes'})
+
+conn.commit()
+conn.close()
+```
 
 Wir finden nun eine Datei `datenbank.db` im aktuellen Verzeichnis.
 
@@ -66,11 +85,11 @@ Die Daten können wieder aus der Datei gelesen werden.
 
 ```python
 conn = sqlite3.connect("datenbank.db")
-c = conn.cursor()
-rows = c.execute("SELECT nr, name FROM personen")
+cur = conn.cursor()
+cur.execute("SELECT nr, name FROM personen")
 
 print("Nr.\t Name")
-for i, name in rows:
+for i, name in cur:
     print(i, "\t", name)
 
 conn.close()
@@ -81,6 +100,7 @@ conn.close()
     102 	 Petra
     103 	 Hans
     104 	 Claudia
+    105 	 Hannes
 
 
 Ändert man die `row_factory` einer sqlite-Verbindung, so kann man auch über den
@@ -90,9 +110,9 @@ Namen auf Einträge zugreifen.
 ```python
 conn = sqlite3.connect("datenbank.db")
 conn.row_factory = sqlite3.Row
-c = conn.cursor()
-rows = c.execute("SELECT nr, name FROM personen")
-for row in rows:
+cur = conn.cursor()
+cur.execute("SELECT nr, name FROM personen")
+for row in cur:
     print(row['nr'], row['name'])
 ```
 
@@ -100,6 +120,7 @@ for row in rows:
     102 Petra
     103 Hans
     104 Claudia
+    105 Hannes
 
 
 Auch über das `sqlite3`-Kommandozeilentool lassen sich die Daten anzeigen.
@@ -141,8 +162,8 @@ werden.
 
 ```python
 conn = sqlite3.connect("datenbank.db")
-c = conn.cursor()
-c.execute("""
+cur = conn.cursor()
+cur.execute("""
     CREATE TABLE freundschaft (
         person1 int, 
         person2 int,
@@ -156,7 +177,7 @@ c.execute("""
 
 
 
-    <sqlite3.Cursor at 0x7f0280352490>
+    <sqlite3.Cursor at 0x7f6d13657740>
 
 
 
@@ -164,7 +185,7 @@ Wir befreunden die Personen Peter (101) und Petra (102) miteinander.
 
 
 ```python
-c.execute("INSERT INTO freundschaft VALUES (101,102)")
+cur.execute("INSERT INTO freundschaft VALUES (101,102)")
 conn.commit()
 ```
 
@@ -176,7 +197,7 @@ mit den IDs -1 und -2 nicht existieren.
 
 
 ```python
-c.execute("INSERT INTO freundschaft VALUES (-1,-2)")
+cur.execute("INSERT INTO freundschaft VALUES (-1,-2)")
 conn.commit()
 ```
 
@@ -184,8 +205,8 @@ Wird die Unterstützung für Fremdschlüssel aktiviert, erfolgt die gewünschte 
 
 
 ```python
-c.execute("PRAGMA foreign_keys = ON")
-c.execute("INSERT INTO freundschaft VALUES (-3,-4)")
+cur.execute("PRAGMA foreign_keys = ON")
+cur.execute("INSERT INTO freundschaft VALUES (-3,-4)")
 conn.commit()
 ```
 
@@ -210,33 +231,39 @@ Wir löschen zum Schluss die Datenbank-Datei.
 rm datenbank.db
 ```
 
-## MySQL
+## MariaDB/MySQL
 
-Für den Zugriff auf eine MySQL-Datenbank muss zusätzlich ein 
-[Connector für 
-MySQL](https://dev.mysql.com/doc/connector-python/en/connector-python-installation-binary.html)
-installiert werden. Dies kann z.B. mit dem folgenden Aufruf geschehen.
+Für den Zugriff auf eine MariaDB/MySQL-Datenbank muss zusätzlich ein Connector für
+[MySQL](https://dev.mysql.com/doc/connector-python/en/connector-python-installation-binary.html)
+oder [MariaDB](https://mariadb.com/de/resources/blog/how-to-connect-python-programs-to-mariadb/)
+installiert werden. Im Folgenden konzentrieren wir uns auf die Verwendung des MariaDB-Connectors.
 
-    $ pip install mysql-connector-python
+Für Windows gibt es ein eigenes [Installationsprogramm](https://mariadb.com/docs/connect/programming-languages/python/install/). Für Linux oder den RaspberryPi muss ggf. vorher 
+[MariaDB Connector/C](https://mariadb.com/docs/connect/programming-languages/c/install/#install-on-debian-ubuntu) 
+installiert werden.
+
+Zunächst wird der Connector installiert:
+
+    $ pip install mariadb  
 
 Bei Rechteproblemen:
 
-    $ pip install --user mysql-connector-python
+    $ pip install --user mariadb
 
 Wenn alles geklappt hat, können wir im Anschluss das neue Modul importieren.
 
 
 ```python
-import mysql.connector
+import mariadb
 ```
 
 Wie stellen eine Verbindung mit der Datenbank her. Diesmal müssen wir Zugangsdaten und die Datenbank angeben.
 
 
 ```python
-conn = mysql.connector.connect(user='root', password='',
-                               host='127.0.0.1',
-                               database='test')
+conn = mariadb.connect(user='root', password='',
+                       host='127.0.0.1',
+                       database='test')
 conn.close()
 ```
 
@@ -244,13 +271,13 @@ Nun können wir eine Tabelle `personen` in der Datenbank `test` erstellen.
 
 
 ```python
-conn = mysql.connector.connect(user='root', password='',
-                              host='127.0.0.1',
-                              database='test')
-c = conn.cursor()
-c.execute("DROP TABLE IF EXISTS personen")
-c.execute("""CREATE TABLE IF NOT EXISTS 
-          personen(nr int, name text)""")
+conn = mariadb.connect(user='root', password='',
+                       host='127.0.0.1',
+                       database='test')
+cur = conn.cursor()
+cur.execute("DROP TABLE IF EXISTS personen")
+cur.execute("""CREATE TABLE IF NOT EXISTS 
+               personen(nr int, name text)""")
 
 conn.close()
 ```
@@ -271,17 +298,15 @@ mysql -uroot --execute="SHOW TABLES;" test
 
 Nun können wir neue Daten in die Tabelle einfügen.
 
-**Achtung:** Die Platzhalter beim Einfügen werden unter MySQL anders angegeben.
-
 
 ```python
-conn = mysql.connector.connect(user="root", password="",
-                              host="127.0.0.1", database="test")
-c = conn.cursor()
+conn = mariadb.connect(user="root", password="",
+                       host="127.0.0.1", database="test")
+cur = conn.cursor()
 for nr, name in TESTDATEN:
     print("Füge Daten hinzu:", nr, name)
-    c.execute(
-        """INSERT INTO personen (nr, name) VALUES(%s,%s)""", 
+    cur.execute(
+        """INSERT INTO personen (nr, name) VALUES(?,?)""", 
         (nr, name))
 conn.commit()
 conn.close()
@@ -310,15 +335,15 @@ mysql -uroot --execute="SELECT * FROM personen" test
     +------+---------+
 
 
-Die Daten können natürlich auch mit Python abgerufen werden. Auch hier gibt es einen Unterschied zu der Version mit sqlite: `execute` liefert auch für Abfragen keinen Rückgabewert. Stattdessen wird über den Cursor iteriert.
+Die Daten können natürlich auch mit Python abgerufen werden.
 
 
 ```python
-conn = mysql.connector.connect(user="root", password="",
-                               host="127.0.0.1", database="test")
-c = conn.cursor()
-c.execute("SELECT nr,name FROM personen")
-for nr, name in c:
+conn = mariadb.connect(user="root", password="",
+                       host="127.0.0.1", database="test")
+cur = conn.cursor()
+cur.execute("SELECT nr,name FROM personen")
+for nr, name in cur:
     print(nr, name)
     
 conn.close()
@@ -329,17 +354,6 @@ conn.close()
     103 Hans
     104 Claudia
 
-
-Die weitere Dokumentation von MySQL enthält verschiedene [Beispiele, die
-den Umgang mit einer MySQL-Datenbank 
-zeigen](https://dev.mysql.com/doc/connector-python/en/connector-python-examples.html).
-Der wesentliche Unterschied besteht darin, wie eine Verbindung aufgebaut wird.
-Nach dem Erzeugen eines Cursors mit ``cursor = eine_connection.cursor()`` kann
-mit einem Aufruf von ``cursor.execute(...)`` wie im Falle von sqlite auf die 
-Datenbank zugegriffen werden.
-
-Das sehr ausführliche [Python MySQL-Tutorial](https://pynative.com/python-mysql-tutorial/)
-geht auf viele Details genauer ein.
 
 ## NoSQL mit TinyDB
 
