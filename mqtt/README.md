@@ -1,4 +1,3 @@
-
 # MQTT
 
 [MQTT](https://de.wikipedia.org/wiki/MQTT) ist ein u.a. von IBM entwickeltes offenes Protokoll, das auf Port 1883 und 8883 (mit Verschlüsselung) läuft und für die Übertragung von Sensordaten zwischen Maschinen entwickelt wurde. Ein [Artikel bei heise](https://heise.de/-2168152) und ein [Artikel bei dzone](https://dzone.com/articles/mqtt-the-nerve-system-of-iot) beschreiben das Protokoll ausführlich.
@@ -109,11 +108,58 @@ publisher.publish(topic=TOPIC, payload=22)
 
 
 
-    <paho.mqtt.client.MQTTMessageInfo at 0x7f56ec19a188>
+    <paho.mqtt.client.MQTTMessageInfo at 0x7f650f070360>
 
 
 
-    Message received: Ergeschoss/Wohnzimmer/Temp b'22'
+    userdata []
+    userdata ['Hello', 'Hello', 'Hello', 'Hello']
+    []
+
+
+## User data
+Sollen Daten zwischen mehreren Nachrichten ausgetauscht werden, so kann ein ``userdata``-Objekt
+hierfür genutzt werden. Es wird beim Erstellen des MQTT-Clients übergeben und wird anschließend
+bei jedem Eintreffen einer Nachricht automatisch mit übermittelt.
+
+
+```python
+USERDATA_TOPIC = "userdata_test"
+
+def my_message(client, userdata, msg):
+    userdata.append(msg.payload.decode())
+    print("userdata", userdata)
+
+# Client mit userdata-Objekt erzeugen
+client = mqtt.Client(userdata=[])
+
+client.on_message = my_message
+client.connect(MQTT_BROKER)
+client.subscribe(USERDATA_TOPIC)
+client.loop_start()
+```
+
+Ein Publisher wird erzeugt und verbindet sich mit dem Broker
+
+
+```python
+publisher = mqtt.Client()
+publisher.connect(MQTT_BROKER, MQTT_PORT)
+publisher.loop_start()
+```
+
+Nun werden ein paar Zahlen in das Topic gesendet und dadurch die Liste in userdata
+gefüllt.
+
+
+```python
+for i in [21,22,23]:
+    publisher.publish(topic=USERDATA_TOPIC, payload=i)
+```
+
+    userdata ['21']
+    userdata ['21', '22']
+    userdata ['21', '22', '23']
 
 
 ## Dashboard
