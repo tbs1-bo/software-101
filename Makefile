@@ -19,7 +19,7 @@ pysimplegui/README.md: pysimplegui/PySimpleGui.ipynb
 	./jupyternb2markdown.sh pysimplegui/PySimpleGui.ipynb pysimplegui/PySimpleGui.md pysimplegui/README.md
 
 mqtt/README.md: mqtt/mqtt.ipynb
-	./jupyternb2markdown.sh mqtt/mqtt.ipynb mqtt/mqtt.md mqtt/README.md
+	./jupyternb2markdown.sh mqtt/mqtt.ipynb mqtt/README.md
 
 dotenv/README.md: dotenv/dotenv.ipynb
 	./jupyternb2markdown.sh dotenv/dotenv.ipynb dotenv/README.md
