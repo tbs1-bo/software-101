@@ -117,7 +117,8 @@ publisher.publish(topic=TOPIC, payload=22)
     []
 
 
-## User data
+## Userdata
+
 Sollen Daten zwischen mehreren Nachrichten ausgetauscht werden, so kann ein ``userdata``-Objekt
 hierfür genutzt werden. Es wird beim Erstellen des MQTT-Clients übergeben und wird anschließend
 bei jedem Eintreffen einer Nachricht automatisch mit übermittelt.
@@ -126,14 +127,17 @@ bei jedem Eintreffen einer Nachricht automatisch mit übermittelt.
 ```python
 USERDATA_TOPIC = "userdata_test"
 
-def my_message(client, userdata, msg):
-    userdata.append(msg.payload.decode())
+# Client mit userdata-Objekt erzeugen
+a_list = []
+client = mqtt.Client(userdata=a_list)
+
+# die Methode nutzt das userdata-Objekt bei eintreffenden Nachrichten
+def message_with_userdata_received(client, userdata, msg):
+    my_list = userdata
+    my_list.append(msg.payload.decode())
     print("userdata", userdata)
 
-# Client mit userdata-Objekt erzeugen
-client = mqtt.Client(userdata=[])
-
-client.on_message = my_message
+client.on_message = message_with_userdata_received
 client.connect(MQTT_BROKER)
 client.subscribe(USERDATA_TOPIC)
 client.loop_start()
