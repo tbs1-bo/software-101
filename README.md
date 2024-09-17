@@ -22,7 +22,7 @@ Python-Bibliotheken.
 - [Type-Hints](typen/README.md)
 - [Dekoratoren](decorator/README.md)
 
-- [MQTT](mqtt/README.md)
+- [MQTT](https://nbviewer.jupyter.org/github/tbs1-bo/software-101/blob/main/mqtt/mqtt.ipynb)
 
 
 ## Hilf mit
