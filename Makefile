@@ -6,9 +6,6 @@ flask/flask_final.html: flask/flask.ipynb
 datenbank/README.md: datenbank/datenbank.ipynb
 	./jupyternb2markdown.sh datenbank/datenbank.ipynb datenbank/README.md
 
-bottle/README.md: bottle/bottle.ipynb
-	./jupyternb2markdown.sh bottle/bottle.ipynb bottle/README.md
-
 pygame-zero/README.md: pygame-zero/pgzero_demo.ipynb
 	./jupyternb2markdown.sh pygame-zero/pgzero_demo.ipynb pygame-zero/pgzero_demo.md pygame-zero/README.md
 
