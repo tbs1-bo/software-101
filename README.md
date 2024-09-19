@@ -20,7 +20,7 @@ Python-Bibliotheken.
 - [Daten in Dateien speichern](persistenz/README.md)
 - [Netzwerkprogrammierung](netzwerk/README.md)
 - [Type-Hints](typen/README.md)
-- [Dekoratoren](decorator/README.md)
+- [Dekoratoren](https://nbviewer.org/github/tbs1-bo/software-101/blob/main/decorator/decorator.ipynb)
 
 - [MQTT](https://nbviewer.jupyter.org/github/tbs1-bo/software-101/blob/main/mqtt/mqtt.ipynb)
 
