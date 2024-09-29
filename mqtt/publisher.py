@@ -12,7 +12,7 @@ publisher.loop_start()
 input("Press Enter to publish message")
 publisher.publish(topic=TOPIC, payload=22)
 
-input("Press Enter for next message")
+input("Press Enter for next message (retained)")
 publisher.publish(topic=TOPIC, payload="23 ret", retain=True)
 
 input("Press Enter to exit")
