@@ -25,7 +25,7 @@ jobs:
       run: sudo apt-get install -y libmariadb3 libmariadb-dev
 
     - name: Install dependencies
-      run: poetry install --only main
+      run: poetry install --no-root
 
     - name: create pages
       run: poetry run ./make_pages.sh
